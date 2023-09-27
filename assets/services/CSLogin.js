@@ -18,7 +18,7 @@ createApp({
             .then(function(r){
                 if(r.data == 1){
                     alert("Successfully Login :) ");
-                    window.location.href ="./Customer/index.php";
+                    window.location.href ="cus_info.php";
                 }else if(r.data == 2){
                     alert("Successfully Login :) ");
                     window.location.href ="./Seller/index.php";

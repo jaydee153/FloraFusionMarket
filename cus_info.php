@@ -4,7 +4,7 @@
         header('location: ./index.php');
         $role = $_SESSION['role'];
         if($role == 1){
-            header('location: /FloraFusion/Customer/index.php');
+            header('location: /FloraFusion/Customer/cus_info.php');
         }else if($role == 2){
             header('location: /FloraFusion/seller/index.php');
         }else{
@@ -93,7 +93,7 @@
         </div>
         <div class="mt-6">
             <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none" type="button">
-                <a href="index.php">Proceed</a>
+                <a href="Customer/index.php">Proceed</a>
             </button>
         </div>
     </div>
