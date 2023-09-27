@@ -64,9 +64,6 @@
                     <li>
                         <a href="products.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Product</a>
                     </li>
-                    <li>
-                        <a href="reviews.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reviews</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -95,6 +92,58 @@
         </div>
     </div>
     
+
+    <div class="container mx-auto mt-8 p-4">
+        <h1 class="text-2xl font-semibold mb-4 text-center">Order Details</h1>
+        <div class="mb-4">
+            <p><strong>Order Number:</strong> #12345</p>
+            <p><strong>Date:</strong> January 19, 2023</p>
+            <p><strong>Customer Info:</strong> JJA, jja@gmail.com</p>
+        </div>
+
+        <!-- Plant Details Table -->
+        <div class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">Plant Details</h2>
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-3 bg-gray-100 border border-gray-300">Plant Name</th>
+                        <th class="py-2 px-3 bg-gray-100 border border-gray-300">Quantity</th>
+                        <th class="py-2 px-3 bg-gray-100 border border-gray-300">Price</th>
+                        <th class="py-2 px-3 bg-gray-100 border border-gray-300">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data -->
+                    <tr>
+                        <td class="py-2 px-3 border border-gray-300">Snake Plant</td>
+                        <td class="py-2 px-3 border border-gray-300">2</td>
+                        <td class="py-2 px-3 border border-gray-300">10.00</td>
+                        <td class="py-2 px-3 border border-gray-300">20.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-3 border border-gray-300">Succulent</td>
+                        <td class="py-2 px-3 border border-gray-300">3</td>
+                        <td class="py-2 px-3 border border-gray-300">15.00</td>
+                        <td class="py-2 px-3 border border-gray-300">45.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mode of Payment -->
+        <div class="mb-4">
+            <p><strong>Mode of Payment:</strong> Cash on Delivery</p>
+        </div>
+
+        <!-- Total Amount -->
+        <div>
+            <p class="text-xl font-semibold"><strong>Total Amount:</strong> 165.00</p>
+        </div>
+        <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"><a href="index.php">Back</a>
+                
+            </button>
+    </div>
 
     <script src="../assets/drop_down.js"></script>
 </body>

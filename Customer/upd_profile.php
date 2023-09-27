@@ -23,7 +23,7 @@
     <title>Update Profile</title>
 </head>
 <body class="bg-gray-100">
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-gray-200 dark:bg-gray-900" id="userinfo">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class="flex items-center">
                 <img src="../assets/img/FloraFusion.jpg" class="h-8 mr-3" alt="Plant Logo" />
@@ -56,9 +56,6 @@
                     <li>
                         <a href="products.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Product</a>
                     </li>
-                    <li>
-                        <a href="reviews.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reviews</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -67,32 +64,28 @@
 
     <div class="container mx-auto mt-8">
         <h2 class="text-2xl font-semibold mb-4 text-center">Update Customer Details</h2>
-        <form>
+        <form @submit="updateInfo" class="insertInfo">
         <div class="mb-4">
                 <label for="profile-image" class="block text-sm font-medium text-gray-600">Profile Image</label>
-                <input type="file" id="profile-image" name="profile-image" class="mt-1 p-2 w-full border rounded">
-            </div>
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
-                <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded">
+                <input type="file" id="profile-image" name="image" class="mt-1 p-2 w-full border rounded">
             </div>
             <div class="mb-4">
                 <label for="current-address" class="block text-sm font-medium text-gray-600">Current Address</label>
-                <input type="text" id="current-address" name="current-address" class="mt-1 p-2 w-full border rounded">
+                <input type="text" id="current-address" name="current_add" class="mt-1 p-2 w-full border rounded">
             </div>
             <div class="mb-4">
                 <label for="permanent-address" class="block text-sm font-medium text-gray-600">Permanent Address</label>
-                <input type="text" id="permanent-address" name="permanent-address" class="mt-1 p-2 w-full border rounded">
+                <input type="text" id="permanent-address" name="permanent_add" class="mt-1 p-2 w-full border rounded">
             </div>
             <div class="mb-4">
                 <label for="contact-number" class="block text-sm font-medium text-gray-600">Contact Number</label>
-                <input type="text" id="contact-number" name="contact-number" class="mt-1 p-2 w-full border rounded">
+                <input type="text" id="contact-number" name="contact_number" class="mt-1 p-2 w-full border rounded">
             </div>
             <div class="mb-4">
                 <label for="gender" class="block text-sm font-medium text-gray-600">Gender</label>
                 <select id="gender" name="gender" class="mt-1 p-2 w-full border rounded">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -106,5 +99,8 @@
     
 
     <script src="../assets/drop_down.js"></script>
+    <script src="../assets/services/axios.js"></script>
+    <script src="../assets/services/vue.3.js"></script>
+    <script src="../assets/services/userinfo.js"></script>
 </body>
 </html>

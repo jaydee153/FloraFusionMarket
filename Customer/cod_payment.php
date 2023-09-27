@@ -10,7 +10,7 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 <body class="bg-gray-100">
-    <div class="container mx-auto mt-8 p-4">
+    <div class="container mx-auto mt-8 p-4 flex flex-col items-center">
         <h1 class="text-2xl font-semibold mb-4">Cash on Delivery Payment</h1>
         <li>Please scan QR Code for 50% Down Payment. And please prepare the 50% exact amount in cash for your order.</li>
             <li>Our delivery person will collect the payment when delivering your order.</li>
@@ -18,7 +18,7 @@
         <div id="codQRCode" class="mt-4"></div>
         
        <div class="mt-4">
-            <a href="order_view.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
+            <a href="tracker.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
                 Proceed
             </a>
         </div>

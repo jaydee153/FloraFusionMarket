@@ -77,9 +77,9 @@
     </div>
 
 
-    <script src="assets/axios.js"></script>
+    <!-- <script src="assets/axios.js"></script>
     <script src="assets/vue.3.js"></script>
-    <script src="assets/CSLogin.js"></script>
+    <script src="assets/CSLogin.js"></script> -->
     <script src="assets/login_modal.js"></script>
     </body>
 </html>

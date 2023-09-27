@@ -36,7 +36,7 @@
         </div>
     </div>
 </body>
-<script src="assets/vue.3.js"></script>
+<!-- <script src="assets/vue.3.js"></script>
 <script src="assets/axios.js"></script>
-    <script src="assets/CSRegister.js"></script>
+    <script src="assets/CSRegister.js"></script> -->
 </html>

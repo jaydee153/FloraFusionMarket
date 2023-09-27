@@ -57,15 +57,30 @@
                         <a href="products.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Product</a>
                     </li>
                     <li>
-                        <a href="reviews.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reviews</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-   
-    
+   <!-- product wishlist -->
+   <div class="p-6">
+    <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-8 p-4">
+    <!-- <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2> -->
+        <!-- Wishlist Product 1 -->
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <img src="../assets/img/plant.jpeg" alt="Plant Product" class="mx-auto w-32 h-32 object-cover rounded-md">
+            <div class="text-center mt-2">
+                <h3 class="text-lg font-semibold">Snake Plant</h3>
+                <p class="text-gray-600">119.99</p>
+            </div>
+            <div class="flex justify-center mt-4 space-x-4">
+                <button class="text-gray-600 hover:text-red-500"><i class="fas fa-heart"></i></button>
+                <button class="text-gray-600 hover:text-green-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="../assets/drop_down.js"></script>
 </body>
