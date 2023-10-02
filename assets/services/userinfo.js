@@ -2,33 +2,24 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            image: '',
-            name: '',
-            current_add: '',
-            permanent_add: '',
-            contact_number: '',
-            gender: '',
-            birthday: '',
+
         }
     },
     methods: {
-        updateInfo: function () {
-            if (confirm("Are you sure you want to Update ?")) {
-                e.preventDefault();
-                var form = e.currentTarget;
-                var vue = this;
-                var data = new FormData(form);
-                data.append("method", "updateInfo");
-                axios.post('./includes/router.php', data)
-                .then(function (r) {
-                    if (r.data == "Successfully Inserted") {
-                        // alert('Successfully');
-                        alert(r.data);
-                        vue.GetProduct();
-                        document.querySelector(".insertInfo").reset();
-                    }
-                })
-            }
-        }
+        CSInfo:function(){
+            var data = new FormData();
+            data.append("method","addUserInfo");
+            data.append("image",document.getElementById('file').file);
+            data.append("currentAddress", document.getElementById('currentAddress').value);
+            data.append("permanentAddress",document.getElementById('permanentAddress').value);
+            data.append("contactNo",document.getElementById('contactNo').value);
+            data.append("gender",document.getElementById('gender').value);
+            data.append("birthday",document.getElementById('birthday').value);
+            axios.post('../includes/router.php',data)
+            .then(function(r){
+                alert(r.data);
+            })
+        },
+
     }
 }).mount('#userinfo')

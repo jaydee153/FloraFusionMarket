@@ -70,4 +70,4 @@
 <script src="assets/services/axios.js"></script>
 <script src="assets/services/vue.3.js"></script>
 <script src="assets/services/CSLogin.js"></script>
-<script src="assets/CSRegister.js"></script>
+<!-- <script src="assets/CSRegister.js"></script> -->

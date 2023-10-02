@@ -2,15 +2,16 @@ const { createApp } = Vue;
 createApp({
     data(){
         return{
-            productID: '',
-            product_ID: '',
             name: '',
-            qty: '',
+            msg: "Hello world",
             image: '',
             price: '',
             desc: '',
+            product: [],
             products : [],
-            search: []
+            product_ID: 0,
+            selectedId: 0,
+            search: '',
         }
     },
     methods:{
@@ -20,7 +21,7 @@ createApp({
             const vue = this;
             var data = new FormData(form);  // Create FormData from the form element
             data.append("method", "AddProduct");
-            axios.post('../includes/router.php', data)
+            axios.post('/florafusion/includes/router.php', data)
                 .then(function(r) {
                     if(r.data == 200) {
                         vue.GetProduct();
@@ -29,15 +30,15 @@ createApp({
                 });
         },
         GetProduct:function(){
-            var vue = this;
+            const vue = this;
             var data = new FormData();
             data.append("method", "getAllProducts");
-            axios.post('../includes/router.php', data)
+            axios.post('/florafusion/includes/router.php', data)
             .then(function(r){
                 vue.products = [];
                 for(var v of r.data){
                     vue.products.push({
-                        id : v.product_ID,
+                        product_ID : v.product_ID,
                         image : v.product_image,
                         name: v.product_name,
                         price: v.product_price,
@@ -48,64 +49,71 @@ createApp({
                 }
             })
         },
-        searchproduct:function(search){
-            var data = new FormData();
+        getProductById:function(product_ID){
             const vue = this;
-            data.append("method","searchProduct");
-            axios.post('../includes/router.php',data)
-            .then(function(r){
-                vue.products = [];
-                for(var v of r.data){
-                    if(v.name.toLowerCase().includes(search.toLowerCase()) ||
-                    v.qty.toString().includes(search.toString())) {
-                        vue.products.push({
-                            name : v.product_name,
-                            qty : v.product_qty
-                        })
-                    }
-                }
-            })
-        },
-        getProductById:function(productID){
             var data = new FormData();
-            var vue = this;
-            data.append("method","getProductById");
-            data.append("product_ID",productID);
-            axios.post('../includes/router.php',data)
+            data.append("method", "getProductById");
+            data.append("product_ID",product_ID);
+            axios.post('/florafusionmarket/includes/router.php',data)
             .then(function(r){
-                console.log(r.data);
                 for(var v of r.data){
-                    vue.products.push({
-                        id : v.product_ID,
-                        image : v.product_image,
-                        name: v.product_name,
-                        price: v.product_price,
-                        qty: v.product_qty,
-                        des: v.product_des,
-                        data: v.created_date,
-                    })
+                    vue.qty = v.product_qty;
+                    vue.price = v.product_price;
+                    vue.product_ID = v.product_ID;
                 }
             })
+            .catch(function(error) {
+                console.error(error);
+            });
         },
-        updateProduct:function(product_ID){
-            
-            if(confirm('Are you sure you want to update')){
+        GETselectedId:function(id){
+            this.selectedId = id;
+        },
+        updateProduct:function(){
+            // if(confirm('Are you sure you want to update')){
                 const vue = this;
                 var data = new FormData();
-                data.append("method","getUpdateProduct");
-                data.append("product_ID",product_ID);
+                data.append("method","getThisUpdateProduct");
+                data.append("product_ID",vue.selectedId);
+                data.append("qty",document.getElementById('qytUpt').value);
+                data.append("price",document.getElementById('priceUpt').value);
                 axios.post('../includes/router.php',data)
-                alert(r.data)
                 .then(function(r){
+                    alert(r.data);
                     if(r.data == "SuccessfullyUpdated"){
                         vue.GetProduct();
                         alert("SuccessfullyUpdated");
                     }
                 })
+            // }
+        },
+
+        deleteProduct:function(id){
+            if(confirm("Are you sure you to Delete this Product")){
+                const vue = this;
+                var data = new FormData();
+                data.append("method","deleteProduct");
+                data.append("product_ID", id);
+                axios.post('../includes/router.php', data)
+                .then(function(r){
+                    if(r.data == 200){
+                        vue.GetProduct();
+                        alert("Successfully Deleted");
+                    }
+                })
             }
+        }
+    },
+    computed:{
+        searchData(){
+            if(!this.search){
+                return this.products;
+            }
+            return this.products.filter(product => product.name.toLowerCase().includes(this.search.toLowerCase()) );
         }
     },
     created:function(){
         this.GetProduct();
+        this.getProductById();
     }
 }).mount('#product')

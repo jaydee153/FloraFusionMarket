@@ -18,8 +18,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
     <title>Cart</title>
 </head>
 <body class="bg-gray-100">
@@ -138,8 +138,8 @@
                 <?php include '../Customer/paymentMethod.php'; ?>
             </div>
         </div>
-        <script src="../assets/modal_cart.js"></script>
-        <script src="../assets/paymentMethod.js"> </script>
+    <script src="../assets/modal_cart.js"></script>
+    <script src="../assets/paymentMethod.js"></script>
     <script src="../assets/drop_down.js"></script>
 </body>
 </html>

@@ -14,11 +14,11 @@ createApp({
 
             var data = new FormData(e.currentTarget);
             data.append("method","Login");
-            axios.post('./includes/router.php',data)
+            axios.post('/florafusion/includes/router.php',data)
             .then(function(r){
                 if(r.data == 1){
                     alert("Successfully Login :) ");
-                    window.location.href ="cus_info.php";
+                    window.location.href ="./Customer/index.php";
                 }else if(r.data == 2){
                     alert("Successfully Login :) ");
                     window.location.href ="./Seller/index.php";
@@ -39,15 +39,15 @@ createApp({
             var vue = this;
             var data = new FormData(form);
             data.append("method","Register");
-            axios.post('./includes/router.php',data)
+            axios.post('/florafusion/includes/router.php',data)
             .then(function(r){
                 if(r.data == 1){
                     alert('Successfully Register');
-                    window.location.href ="index.html";
+                    window.location.href ="cus_info.php";
                 }
                 else if(r.data == 2){
                     alert('Successfully Register');
-                    window.location.href ="index.html";
+                    window.location.href ="cus_info.php";
                 }
                 else if(r.data == 3){
                     alert('Already Registered');
