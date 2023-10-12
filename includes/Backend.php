@@ -1,36 +1,72 @@
 <?php 
 include('database.php');
 include('data.php');
-class backend extends data{
+class backend{
+    //login users
     public function doLogin($email,$password){
         return $this->login($email,$password);
     }
+    //update the price of the quantity
+    public function updateCartIdPrice($id,$price){
+        return $this->doUpdateCartIdPrice($id,$price);
+    }
+    //register users
     public function doRegister($name,$email,$password,$role){
         return $this->register($name,$email,$password,$role);
     }
-    public function doGetAllProducts(){
-        return $this->getAllProducts();
+    //getproduct to display seller side
+    public function doGetAllProducts($userId){
+        return $this->getAllProducts($userId);
     }
+
     public function getDisplayAll(){
         return $this->doDisplayAll();
     }
+    //dispaly product into costumer index
+    public function doGetAllProductFromIndex(){
+        return $this->displayAllData();
+    }
+    //add info to the costumer user
     public function doAddUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id){
         return $this->addUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id);
     }
-    public function doAddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc){
-        return $this->AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc);
+    //add product by seller 
+    public function doAddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID){
+        return $this->AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID);
     }
     public function doGetProduct(){
         return $this->getProduct();
     }
+    //delete product by seller
     public function doDeleteProduct($product_ID){
         return $this->deleteProduct($product_ID);
     }
+    //update product by seller
     public function doGetUpdateProduct($product_ID,$product_qty,$product_price){
         return $this->getUpdateProduct($product_ID,$product_qty,$product_price);
     }
     public function doGetProductById($product_ID){
         return $this->getProductById($product_ID);
+    }
+    //add to cart 
+    public function doAddToCart($id,$product_ID){
+        return $this->getAddToCart($id,$product_ID);
+    }
+    //display product to cart by costumer
+    public function doDisplayCart($id){
+        return $this->getDisplayCart($id);
+    }
+    //delete product from cart by costumer
+    public function doDeleteCart($id){
+        return $this->getDeleteCart($id);
+    }
+    //add to wishlist
+    public function doAddToWishlist($id,$product_ID){
+        return $this->getAddToWishlist($id,$product_ID);
+    }
+    //display product to wishlist by costumer
+    public function doDisplayWishlist($id){
+        return $this->getDisplayWishlist($id);
     }
 
 
@@ -133,14 +169,14 @@ class backend extends data{
     }
 
 
-    private function AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc)
+    private function AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID)
     {
         try{
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->doAddProductData());
-                $query->execute(array($product_image,$product_name,$product_price,$product_qty,$product_desc));
+                $query->execute(array($userID, $product_image, $product_name, $product_price, $product_qty, $product_desc));
                 $result = $query->fetch();
                 if(!$result){
                     $con->closeConnection();
@@ -214,6 +250,28 @@ class backend extends data{
             return $th;
         }
     }
+    private function doUpdateCartIdPrice($id,$price){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->doUpdatePrice());
+                $query->execute(array($price, $id));
+                $result = $query->fetch();
+                if(!$result){
+                    $con->closeConnection();
+                    return "SuccessfullyUpdated";
+                }else{
+                    $con->closeConnection();
+                    return "FailedToInsert";
+                }
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
     private function deleteProduct($product_ID){
         try{
             $con = new database();
@@ -244,8 +302,7 @@ class backend extends data{
                 $query = $con->getCon()->prepare($DT->doGetProductByIdData());
                 $query->execute(array($product_ID));
                 $result = $query->fetchAll();
-                $con->closeConnection();
-                // var_dump($result);
+                $con->closeConnection(); 
                 return json_encode($result);
             }else{
                 return "NotConnectedToDatabase";
@@ -255,14 +312,133 @@ class backend extends data{
         }
     }
 
-    private function getAllProducts(){
+    private function getAllProducts($userId){
         try {
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->getAllProductsQuery());
+                $query->execute(array($userId));
+                $result = $query->fetchAll();
+                $con->closeConnection();
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+
+    private function displayAllData(){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->getAllProductFromIndex());
                 $query->execute();
                 $result = $query->fetchAll();
+                $con->closeConnection();
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getAddToCart($id,$product_ID){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->geTAddToCartData());
+                $query->execute(array($id,$product_ID));
+                $result = $query->fetch();
+                $con->closeConnection();
+                if(!$result){
+                    $con->closeConnection();
+                    return 200;
+                }else{
+                    $con->closeConnection();
+                    return 404;
+                }
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getDisplayCart($id){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->getDisplayCartData());
+                $query->execute(array($id));
+                $result = $query->fetchall();
+                $con->closeConnection();
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getDeleteCart($id){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->getDeleteCartData());
+                $query->execute(array($id));
+                $result = $query->fetch();
+                $con->closeConnection();
+                if(!$result){
+                    return 200;
+                }else{
+                    return 404;
+                }
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getAddToWishlist($id,$product_ID){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->getAddToWishlistData());
+                $query->execute(array($id,$product_ID));
+                $result = $query->fetch();
+                $con->closeConnection();
+                if(!$result){
+                    $con->closeConnection();
+                    return 200;
+                }else{
+                    $con->closeConnection();
+                    return 404;
+                }
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getDisplayWishlist($id){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->getDisplayWishlistData());
+                $query->execute(array($id));
+                $result = $query->fetchall();
                 $con->closeConnection();
                 return json_encode($result);
             }else{

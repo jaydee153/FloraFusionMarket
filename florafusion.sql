@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2023 at 01:59 PM
+-- Generation Time: Oct 04, 2023 at 10:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -82,7 +82,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_ID`, `product_image`, `product_name`, `product_qty`, `product_price`, `product_des`, `created_date`) VALUES
-(10, 'hhhhh.jpg', 'Santan', 300, 500, 'santan', '2023-10-02 10:31:51');
+(1, 'bleulock.jpg', 'sunflower', 250, 500, 'sunflower', '2023-10-03 07:46:37'),
+(2, 'capstone.png', 'Snake Plant', 300, 500, 'Snake plant', '2023-10-03 07:47:01'),
+(3, 'capstone.png', 'cactus', 250, 150, 'cactus', '2023-10-03 07:47:29');
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,10 @@ INSERT INTO `user_table` (`id`, `name`, `email`, `password`, `role`, `status`, `
 (2, 'akogwapo', 'jeff@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, '1', '', 'qqwertyui', 'qwertyui', 123456789, '1992-02-16', '2023-09-27 14:59:32'),
 (3, 'jeffrey', 'jeffreyigot07@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, 1, '', '', '', '', 0, '', '2023-09-27 15:00:20'),
 (4, 'jomong', 'jomong@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, '', 'mahayahay bankal lapu-lapu city', 'mahayahay bankal lapu-lapu city', '09554593878', 1999, '1', '2023-09-29 15:26:18'),
-(5, 'admin', 'admin@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 1, '', '', '', '', 0, '', '2023-10-01 04:23:16');
+(5, 'admin', 'admin@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 1, '', '', '', '', 0, '', '2023-10-01 04:23:16'),
+(6, 'janah', 'jd@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '', '2023-10-02 14:50:49'),
+(7, 'amego', 'amego@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '', '2023-10-03 07:21:22'),
+(8, 'seller', 'seller@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '', '2023-10-04 08:46:27');
 
 -- --------------------------------------------------------
 
@@ -330,7 +335,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchases`
@@ -372,7 +377,7 @@ ALTER TABLE `tracker`
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

@@ -1,46 +1,44 @@
-const { createApp } = Vue;
-createApp({
-    data(){
-        return{
-            username: '',
-            comment: '',
-            id : '',
-            name : '',
-            qty: '',
-            image: '',
-            price: '',
-            desc: '',
-            search: '',
-            plants: [],
-        }
-    },
-    methods:{
-        displayProduct:function(){
-            const vue = this;
-            var data = new FormData();
-            data.append("method","displayAll");
-            axios.post('../includes/router.php',data)
-            .then(function(r){
-                vue.plants = [];
-                for(var v of r.data){
-                    vue.plants.push({
-                        id : v.plantsID,
-                        name : v.plantsName,
-                        qty : v.plantsQty,
-                        image : v.plantsImage,
-                        price : v.plantsPrice,
-                        desc : v.plantsDesc,
-                        username : v.plantsUsername,
-                        comment: v.plantsComment,
-                    })
-                }
-            })
-        }
-    },
-    computed:{
+// const { createApp } = Vue;
+// createApp({
+//     data(){
+//         return{
+//             name: '',
+//             image: '',
+//             price: '',
+//             desc: '',
+//             product: [],
+//             products : [],
+//             product_ID: 0,
+//             selectedId: 0,
+//             search: '',
+//         }
+//     },
+//     methods:{
+//         fnGetDataProducts: function(product_ID) {
+//             const vue = this;
+//             var data = new FormData();
+//             data.append("method", "getProductById");
+//             data.append("product_ID", product_ID); 
+//             axios.post('/florafusion/includes/router.php', data)
+//               .then(function(response) {
+//                 if (response.data.length > 0) {
+//                   var product = response.data[0]; 
+//                   vue.name = product.product_name;
+//                   vue.desc = product.product_des; 
+//                   vue.price = product.product_price;
+//                   vue.product_ID = product.product_ID;
+//                   vue.image = '/florafusion/assets/img/' + product.product_image;
+               
+//                 } else {
+//                   console.error('No data returned from the server.');
+//                 }
+//               })
+//               .catch(function(error) {
+//                 console.error('Error:', error);
+//               });
+//           },
+//     },
+//     computed:{
 
-    },
-    created:function(){
-        this.displayProduct();
-    }
-}).mount('#displayProd')
+//     },
+// }).mount('#displayProd')

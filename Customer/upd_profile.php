@@ -20,6 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/sweetalert.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
     <title>Update Profile</title>
 </head>
@@ -128,6 +129,7 @@
             </div>
         </div>
     </div>
+    <link rel="stylesheet" href="../assets/css/sweetalert.js">
     <script src="../assets/drop_down.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>

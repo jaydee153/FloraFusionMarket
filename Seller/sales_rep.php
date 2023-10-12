@@ -90,14 +90,14 @@
     <div class="flex justify-between items-center mb-4">
         <div class="relative ml-auto">
         <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md" id="openAddModal">+</button>
-            <input type="text" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
+            <input type="text" v-model="search" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
         </div>
     </div>
     
     <!-- Sales report table -->
     <table class="min-w-full divide-y divide-gray-800 border border-gray-800 ">
         <thead class="bg-gray-50">
-            <tr>
+            <tr v-for="record in searchRecord">
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Year</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
@@ -105,8 +105,8 @@
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">January</td>
-                <td class="px-6 py-4 whitespace-nowrap">2023</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ January }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ 2023 }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                 <button id="viewSalesButton" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md ml-2">View</button>
                     <button id="updateSalesButton" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Update</button>

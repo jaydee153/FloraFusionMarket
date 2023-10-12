@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="relative ml-auto">
-            <input type="text" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
+            <input type="text" v-model="search" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
         </div>
     </div>
     
@@ -111,12 +111,12 @@
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">001</td>
-                <td class="px-6 py-4 whitespace-nowrap">JJA</td>
-                <td class="px-6 py-4 whitespace-nowrap">2023-08-27</td>
-                <td class="px-6 py-4 whitespace-nowrap">150.00</td>
-                <td class="px-6 py-4 whitespace-nowrap">Shipped</td>
+            <tr v-for="order in orderSearch">
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.ID }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.name }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.date }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.price }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.status = 1 ? 'Pending' : 'Completed' }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                 <button id="viewOrderButton" class="bg-green-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md view-order-details">View</button>
                 <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">Delete</button>
@@ -145,14 +145,14 @@
       <h2 class="text-2xl text-center font-semibold mb-4">Order Details</h2>
       <!-- Order Number and Date -->
       <div class="mb-4">
-        <p><strong>Order Number:</strong> 001</p>
-        <p><strong>Date:</strong> August 27, 2023</p>
+        <p><strong>Order Number:</strong>{{order_id}}</p>
+        <p><strong>Date:</strong>{{order_date}}</p>
       </div>
       <!-- Customer Information -->
       <div class="mb-4">
-        <p><strong>Customer Name:</strong> JJA</p>
-        <p><strong>Address:</strong> Dapitan Cordova Cebu</p>
-        <p><strong>Contact Number:</strong> 09123456789</p>
+        <p><strong>Customer Name:</strong>{{ JJA}}</p>
+        <p><strong>Address:</strong>{{ Dapitan Cordova Cebu}}</p>
+        <p><strong>Contact Number:</strong>{{ 09123456789}}</p>
       </div>
       <!-- Product Table -->
       <table class="table-auto w-full mb-4">
@@ -166,18 +166,18 @@
         </thead>
         <tbody>
           <tr>
-            <td class="border px-4 py-2">Cactus</td>
-            <td class="border px-4 py-2">2</td>
-            <td class="border px-4 py-2">100</td>
-            <td class="border px-4 py-2">50</td>
+            <td class="border px-4 py-2">{{ Cactus }}</td>
+            <td class="border px-4 py-2">{{ 2 }}</td>
+            <td class="border px-4 py-2">{{ 100 }}</td>
+            <td class="border px-4 py-2">{{ 50 }}</td>
           </tr>
           <!-- Add more rows for other products if needed -->
         </tbody>
       </table>
       <!-- Mode of Payment and Total Amount -->
       <div class="mb-4">
-        <p><strong>Mode of Payment:</strong> COD</p>
-        <p><strong>Total Amount:</strong> 150</p>
+        <p><strong>Mode of Payment:</strong>{{ COD}}</p>
+        <p><strong>Total Amount:</strong>{{ 150}}</p>
       </div>
       <!-- Delivered Button -->
       <button class="bg-green-500 text-white rounded-md py-2 px-4 hover:bg-green-600">Delivered</button>

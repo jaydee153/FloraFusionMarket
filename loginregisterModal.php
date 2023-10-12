@@ -70,4 +70,5 @@
 <script src="assets/services/axios.js"></script>
 <script src="assets/services/vue.3.js"></script>
 <script src="assets/services/CSLogin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- <script src="assets/CSRegister.js"></script> -->

@@ -9,29 +9,62 @@ createApp({
         }
     },
     methods:{
-        login:function(e){
-            e.preventDefault();
-
-            var data = new FormData(e.currentTarget);
-            data.append("method","Login");
-            axios.post('/florafusion/includes/router.php',data)
-            .then(function(r){
-                if(r.data == 1){
-                    alert("Successfully Login :) ");
-                    window.location.href ="./Customer/index.php";
-                }else if(r.data == 2){
-                    alert("Successfully Login :) ");
-                    window.location.href ="./Seller/index.php";
-                }else if(r.data == 0){
-                    alert("Welcome To Admin Dashboard");
-                    window.location.href ="./Admin/index.php";
-                }
-                else{
-                    alert("Try Again To log in ");
-                    // alert(r.data);
-                }
-            })
-        },
+      login: function (e) {
+        e.preventDefault();
+      
+        var data = new FormData(e.currentTarget);
+        data.append("method", "Login");
+      
+        axios.post('/florafusion/includes/router.php', data)
+          .then(function (r) {
+            if (r.data == 1) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Successfully Login',
+                color:'green',
+                showConfirmButton: false, 
+                timer: 1500
+              }).then(function () {
+                window.location.href = "./Customer/index.php";
+              });
+            } else if (r.data == 2) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Successfully Login',
+                showConfirmButton: false, 
+                timer: 1500
+              }).then(function () {
+                window.location.href = "./Seller/index.php";
+              });
+            } else if (r.data == 0) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Welcome To Admin Dashboard',
+                showConfirmButton: false, 
+                timer: 1500 
+              }).then(function () {
+                window.location.href = "./Admin/index.php";
+              });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Try Again To log in',
+              });
+            }
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'An error occurred while processing your request.',
+            });
+          });
+    },
+       
         Register:function(e){
             e.preventDefault();
             var form = e.currentTarget;
@@ -43,11 +76,13 @@ createApp({
             .then(function(r){
                 if(r.data == 1){
                     alert('Successfully Register');
-                    window.location.href ="cus_info.php";
+                    // window.location.href ="cus_info.php";
+                    window.location.reload();
                 }
                 else if(r.data == 2){
                     alert('Successfully Register');
-                    window.location.href ="cus_info.php";
+                    // window.location.href ="cus_info.php";
+                    window.location.reload();
                 }
                 else if(r.data == 3){
                     alert('Already Registered');

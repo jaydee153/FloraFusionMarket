@@ -20,6 +20,7 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/sweetalert.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
     <title>Inventory</title>
@@ -111,6 +112,8 @@ if (!isset($_SESSION['id'])) {
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Category Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Price</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total
                             Products</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -122,6 +125,7 @@ if (!isset($_SESSION['id'])) {
                         <td class="px-6 py-4 whitespace-nowrap"><img :src="'/florafusion/assets/img/'+product.image"
                                 alt="" class="rounded" width="200" height="250"></td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ product.price }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.qty }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <button @click="GETselectedId(product.product_ID)"
@@ -191,6 +195,7 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
     </div>
+    <script src="../assets/css/sweetalert.js"></script>
     <script src="../assets/css/bootstrap.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>
