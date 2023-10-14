@@ -153,7 +153,7 @@ if (!isset($_SESSION['id'])) {
                 <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
                 <p class="text-gray-600">{{ product.des }}</p>
                 <div class="mt-2">
-                  <span class="text-blue-500 font-semibold">{{ product.price }}</span>
+                  <span class="text-blue-500 font-semibold">₱{{ product.price }}</span>
                   <span class="text-gray-500 ml-2 line-through">{{ product.oldPrice }}</span>
                 </div>
                 <div class="mt-3 flex justify-center">

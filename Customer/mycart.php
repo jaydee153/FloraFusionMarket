@@ -111,7 +111,7 @@ if (!isset($_SESSION['id'])) {
                         <td class="py-2 px-4">{{ c.p_totalPrice }}</td>
                         <td class="py-2 px-4">
                             <button class="text-red-500 hover:text-red-700 focus:outline-none" @click="deleteCart(c.id)">
-                                <i class="fas fa-trash"></i> Delete
+                                <i class="fas fa-trash"></i>
                             </button>
                         </td>
                     </tr>
