@@ -71,17 +71,16 @@
             </ul>
         </div>
     </div>
-
-    <div class="flex-1 bg-white p-4 mt-28 shadow-md">
-    <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
-    <div class="flex items-center">
-        <div class="bg-green-500 p-4 rounded-md text-black mr-2">
-            <h3 class="text-xl font-semibold">Number of Plants</h3>
-            <p class="text-4xl">150</p>
-        </div>
-        <div class="bg-blue-500 p-4 rounded-md text-black ml-2">
-            <h3 class="text-xl font-semibold">Number of Orders</h3>
-            <p class="text-4xl">150</p>
+    <div class="flex-1 bg-white p-4 shadow-md">
+        <div class="flex justify-between items-center mb-4 py-2 ">
+            <div class="bg-green-500 p-4 rounded-md text-black">
+                <h3 class="text-xl font-semibold">Number of Plants</h3>
+                <p class="text-4xl">150</p>
+            </div>
+            <div class="bg-blue-500 p-4 rounded-md text-black">
+                <h3 class="text-xl font-semibold">Number of Orders</h3>
+                <p class="text-4xl">150</p>
+            </div>
         </div>
     </div>
 </div>

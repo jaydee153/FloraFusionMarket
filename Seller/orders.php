@@ -73,48 +73,47 @@
         </div>
     </div>
     
-    <!-- Content on the right -->
-    <div class="flex-1 bg-white p-4 shadow-md">
-    <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
-        <div class="flex justify-between items-center mb-4 mt-20">
-            <div class="mb-4">
-                <div class="flex space-x-4">
-                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">All Orders</button>
-                    <button class="bg-yellow-300 hover:bg-yellow-400 text-yellow-700 px-4 py-2 rounded-md">Pending</button>
-                    <button class="bg-green-300 hover:bg-green-400 text-green-700 px-4 py-2 rounded-md">Completed</button>
-                </div>
-            </div>
-            <div class="relative ml-auto">
-                <input type="text" v-model="search" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
+    <div class="flex justify-between items-center mb-4">
+        <div class="mb-4">
+            <div class="flex space-x-4">
+                <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md">All Orders</button>
+                <button class="bg-yellow-300 hover:bg-yellow-400 text-yellow-700 px-4 py-2 rounded-md">Pending</button>
+                <button class="bg-green-300 hover:bg-green-400 text-green-700 px-4 py-2 rounded-md">Completed</button>
             </div>
         </div>
-        
-        <table class="w-1/2 min-w-full divide-y divide-gray-800 border border-gray-800">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Order ID</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="order in orderSearch">
-                    <td class="px-6 py-4 whitespace-nowrap">{{ order.ID }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ order.name }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ order.date }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ order.price }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ order.status == 1 ? 'Pending' : 'Completed' }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <button id="viewOrderButton" class="bg-green-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md view-order-details">View</button>
-                        <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="relative ml-auto">
+            <input type="text" v-model="search" class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500" placeholder="Search">
+        </div>
     </div>
+    
+    <table class="min-w-full divide-y divide-gray-800 border border-gray-800">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <tr v-for="order in orderSearch">
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.ID }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.name }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.date }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.price }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ order.status = 1 ? 'Pending' : 'Completed' }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                <button id="viewOrderButton" class="bg-green-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md view-order-details">View</button>
+                <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">Delete</button>
+                </td>
+            </tr>
+            <!-- Repeat the above row for each order -->
+        </tbody>
+    </table>
+</div>
+
 </div>
 
 
