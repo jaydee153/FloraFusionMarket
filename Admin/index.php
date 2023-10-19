@@ -21,7 +21,7 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <div class="flex p-8 space-x-8">
+    <div class="flex">
     <div class=" bg-green-300 text-black p-4">
         <div class="bg-green-300 text-black h-screen w-64 flex flex-col">
     <div class="p-4">
@@ -42,14 +42,6 @@
                 <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2H2V2zm18 5H0v11a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7zM2 14h16V8H2v6z"/>
                 </svg>
-                <span>Inventory</span>
-            </a>
-        </li>
-        <li class="hover:bg-gray-700 p-2 rounded-md cursor-pointer">
-            <a href="#" class="flex items-center space-x-2">
-                <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2H2V2zm18 5H0v11a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7zM2 14h16V8H2v6z"/>
-                </svg>
                 <span>User Profiles</span>
             </a>
         </li>
@@ -62,6 +54,14 @@
             </a>
         </li>
         <li class="hover:bg-gray-700 p-2 rounded-md cursor-pointer">
+            <a href="#" class="flex items-center space-x-2">
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2H2V2zm18 5H0v11a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7zM2 14h16V8H2v6z"/>
+                </svg>
+                <span>Inventory</span>
+            </a>
+        </li>
+        <li class="hover:bg-gray-700 p-2 rounded-md cursor-pointer">
             <a href="../includes/logout.php" class="flex items-center space-x-2">
             <i class="mr-2 text-red-500 fas fa-sign-out-alt"></i>
                 <span>Log out</span>
@@ -71,6 +71,19 @@
     </ul>
 </div>
 
+
+<div class="flex-1 bg-white p-4 shadow-md">
+    <div class="flex items-center">
+        <div class="bg-green-500 p-4 rounded-md text-black mr-2">
+            <h3 class="text-xl font-semibold">Customers</h3>
+            <p class="text-4xl">150</p>
+        </div>
+        <div class="bg-blue-500 p-4 rounded-md text-black ml-2">
+            <h3 class="text-xl font-semibold">Sellers</h3>
+            <p class="text-4xl">150</p>
+        </div>
+    </div>
+</div>
 
 
 

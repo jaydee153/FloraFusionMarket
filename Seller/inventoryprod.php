@@ -75,61 +75,81 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
 
-        <!-- Add Category Button -->
-
-        <div class="flex-1 bg-white p-4 shadow-md">
-            <h2 class="text-xl font-semibold mb-4">Category</h2>
-            <div class="flex justify-between items-center mb-4">
-                <div class="relative ml-auto">
-                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-3"
-                        data-bs-toggle="modal" data-bs-target="#addprod">+</button>
-                    <input type="search" v-model="search"
-                        class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500"
-                        placeholder="Search">
-                </div>
-            </div>
-
-            <!-- table -->
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Category Name</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total
-                            Products</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200" id="tbl">
-                    <tr v-for="product in searchData">
-                        <td class="px-6 py-4 whitespace-nowrap">{{ product.name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ product.price }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <button @click="GETselectedId(product.product_ID)"
-                                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
-                                data-bs-toggle="modal" data-bs-target="#updateprod">Update</button>
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md ml-2"><a href="inventoryprod.php">View</a></button>
-                            <button @click="deleteProduct(product.product_ID)"
-                                class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md ml-2">Delete</button>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
+    <div class="flex-1 bg-white p-4 shadow-md">
+    <!-- Add a Back Button -->
+    
+    <h2 class="text-xl font-semibold mb-4">Category</h2>
+    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md mb-4"><a href="inventory.php">Back</a></button>
+    <div class="flex justify-between items-center mb-4">
+    
+    <h2 class="text-xl font-semibold ">Ornamental</h2>
+        <div class="relative ml-auto">
+            <button class="bg-green-500 hoverbg-green-600 text-white px-4 py-2 rounded-md mr-3"
+                data-bs-toggle="modal" data-bs-target="#addprod">+</button>
+            <input type="search" v-model="search"
+                class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500"
+                placeholder="Search">
         </div>
+    </div>
 
-        <!-- Modal for Add Category -->
-        <div class="modal fade" id="addprod" tabindex="-1">
+
+
+    <!-- Table -->
+    <table class="min-w-full border-collapse border border-gray-300">
+        <thead>
+            <tr>
+                <th class="py-2 px-3 bg-gray-200">Plant Image</th>
+                <th class="py-2 px-3 bg-gray-200">ID Number</th>
+                <th class="py-2 px-3 bg-gray-200">Plant Name</th>
+                <th class="py-2 px-3 bg-gray-200">Quantity</th>
+                <th class="py-2 px-3 bg-gray-200">Price</th>
+                <th class="py-2 px-3 bg-gray-200">Description</th>
+                <th class="py-2 px-3 bg-gray-200">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample inventory items (you can use a loop to populate these) -->
+            <tr>
+                <td class="py-2 px-3"><img src="plant1.jpg" alt="Plant 1" class="w-16 h-16" /></td>
+                <td class="py-2 px-3">001</td>
+                <td class="py-2 px-3">Succulent</td>
+                <td class="py-2 px-3">10</td>
+                <td class="py-2 px-3">P120.00</td>
+                <td class="py-2 px-3">aszdffhdtjyf</td>
+                <td class="py-2 px-3">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-md ml-2"
+                        data-bs-toggle="modal" data-bs-target="#displayprod">Display</button>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-md ml-2"
+                        data-bs-toggle="modal" data-bs-target="#updateprod">Update</button>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md ml-2"
+                        data-bs-toggle="modal" data-bs-target="#deleteprod">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+ <!-- Modal for Add Category -->
+ <div class="modal fade" id="addprod" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content p-4">
                     <div class="modal-header">
-                        <h5 class="modal-title text-2xl font-semibold mb-4" id="addprod">Add Category</h5>
+                        <h5 class="modal-title text-2xl font-semibold mb-4" id="addprod">Add Products</h5>
                     </div>
                     <form @submit="addproducts" class="productform">
-                        <!-- Category Name -->
-                        <input type="text" placeholder="Category Name" class="mt-1 p-2 w-full border rounded"
+                        <!-- Image -->
+                        <input type="file" class="mt-1 p-2 w-full border rounded" name="file" id="image">
+                        <!-- Product -->
+                        <input type="text" placeholder="Product Name" class="mt-1 p-2 w-full border rounded"
                             name="name">
+                        <!-- Total Products -->
+                        <input type="text" placeholder="Total Products" class="mt-1 p-2 w-full border rounded"
+                            name="price">
+                        <!-- Total Products -->
+                        <input type="text" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="qty">
+                        <!-- Description -->
+                        <input type="text" placeholder="Description" class="mt-1 p-2 w-full border rounded" name="desc">
                         <!-- Add Button -->
                         <div class="d-flex flex-row-reverse">
                             <button
@@ -139,32 +159,9 @@ if (!isset($_SESSION['id'])) {
                 </div>
             </div>
         </div>
-        
-    <!-- Modal for Update Plant -->
-    <div class="modal fade" id="updateprod" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
-                <div class="modal-header">
-                    <h5 class="modal-title text-2xl font-semibold mb-4" id="updateprod">Update Category</h5>
-                </div>
-                <form>
-                    <!-- Total Products -->
-                    <input type="number" placeholder="Total Products" class="mt-1 p-2 w-full border rounded" name="qty"
-                        id="qytUpt">
-                    <!-- Total Price -->
-                    <input type="number" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="price"
-                        id="priceUpt">
-                    <!-- Update Button -->
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" @click="updateProduct"
-                            class="bg-blue-500 text-white rounded-md py-2 px-4 mx-2 my-2 hover:bg-blue-600"
-                            data-bs-dismiss="modal" aria-label="Close">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
+
+
+
     <script src="../assets/css/sweetalert.js"></script>
     <script src="../assets/css/bootstrap.js"></script>
     <script src="../assets/services/axios.js"></script>
@@ -173,3 +170,5 @@ if (!isset($_SESSION['id'])) {
 </body>
 
 </html>
+
+

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/sweetalert.css">
     <link rel="stylesheet" href="../FloraFusionMarket/assets/css/tailwind.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
     <title>Home</title>
 </head>
@@ -24,7 +25,6 @@
 
     .modal-content {
         background-color: #fff;
-        width: 80%;
         max-width: 600px;
         margin: 2rem auto;
         padding: 1rem;
@@ -32,7 +32,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Center content horizontally */
     }
 
     /* Close button */
@@ -87,7 +86,7 @@
 
 
 <!-- section 1 -->
-<section id="section1" class="bg-green-300 py-8">
+<section id="section1" class="bg-green-300 py-8 bg-cover bg-center h-screen flex items-center justify-center">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
     <div class="mt-10 ml-6">
       <h2 class="text-4xl font-bold mb-4 text-center text-green-800 mt-10">FloraFusion Market</h2>
@@ -98,12 +97,11 @@
         enchantment begin!
       </p>
       <div class="flex justify-center mt-10">
-      <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 mb-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <svg aria-hidden="true" class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
-        <a href="login.php">
-          Order now
-        </a>
-      </button>
+      <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 mb-10 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">
+    <i class="fas fa-shopping-cart w-5 h-5 mr-2 -ml-1"></i>
+    <a href="loginregisterModal.php">Order now</a>
+    </button>
+
     </div>
     </div>
     <div class="md:text-right mb-10 ml-6">
@@ -114,7 +112,7 @@
 <!-- section 2 -->
 
 <div id="product">
-  <section id="section2" class="bg-white py-8">
+  <section id="section2" class="bg-white py-8 bg-cover bg-center h-screen flex items-center justify-center">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
       <div class="max-w-5xl mx-auto p-4">
@@ -130,11 +128,11 @@
                   <span class="text-gray-500 ml-2 line-through">{{ product.oldPrice }}</span>
                 </div>
                 <div class="mt-3 flex justify-center">
-                  <button class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600" @click="addToCart(product.product_ID)">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                  <button class="text-red-500 hover:text-gray-500">
+                    <i class="fas fa-heart"></i>
                   </button>
-                  <button class="text-gray-500 hover:text-red-500 ml-2">
-                    <i class="fas fa-heart"></i> Add to Wishlist
+                <button class="text-green-600 hover:text-gray-500 ml-2" @click="addToCart(product.product_ID)">
+                    <i class="fas fa-cart-plus"></i>
                   </button>
                 </div>
               </div>
@@ -188,24 +186,41 @@
   </div>
 </div>
 <!-- section 3 -->
-  <section id="section3" class="bg-gray-100 py-8">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">What our Customers Say</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <div class="bg-white shadow rounded-lg p-4">
-          <h3 class="text-xl font-semibold mb-2">John Doe</h3>
-          <p class="text-gray-700 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut lacus metus. Sed et imperdiet turpis, id blandit ante.</p>
+  <section id="section3" class="bg-gray-100 py-8 bg-cover bg-center h-screen flex items-center justify-center">
+  <div class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-4">
+    <h2 class="text-2xl font-semibold mb-4">Top 3 Store Seller Products</h2>
+
+    <!-- Product 1 -->
+    <div class="flex items-center mb-4">
+        <img src="product1-image.jpg" alt="Product 1" class="w-20 h-20 object-cover rounded">
+        <div class="ml-4">
+            <h3 class="text-lg font-semibold">Product 1</h3>
+            <p class="text-gray-600">Description of Product 1.</p>
+            <div class="text-blue-500 font-semibold">Price: $100</div>
         </div>
-        <div class="bg-white shadow rounded-lg p-4">
-          <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
-          <p class="text-gray-700 mb-4">Nulla venenatis ipsum a felis faucibus, ut fermentum metus tincidunt.</p>
-        </div>
-        <div class="bg-white shadow rounded-lg p-4">
-          <h3 class="text-xl font-semibold mb-2">Michael Johnson</h3>
-          <p class="text-gray-700 mb-4">Fusce tincidunt dui in nisl egestas, in fringilla nunc auctor. Sed convallis tortor non libero eleifend aliquet.</p>
-        </div>
-      </div>
     </div>
+
+    <!-- Product 2 -->
+    <div class="flex items-center mb-4">
+        <img src="product2-image.jpg" alt="Product 2" class="w-20 h-20 object-cover rounded">
+        <div class="ml-4">
+            <h3 class="text-lg font-semibold">Product 2</h3>
+            <p class="text-gray-600">Description of Product 2.</p>
+            <div class="text-blue-500 font-semibold">Price: $80</div>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="flex items-center">
+        <img src="product3-image.jpg" alt="Product 3" class="w-20 h-20 object-cover rounded">
+        <div class="ml-4">
+            <h3 class="text-lg font-semibold">Product 3</h3>
+            <p class="text-gray-600">Description of Product 3.</p>
+            <div class="text-blue-500 font-semibold">Price: $70</div>
+        </div>
+    </div>
+</div>
+
   </section>
 
 <script src="../assets/css/sweetalert.js"></script>
@@ -216,6 +231,7 @@
     <script src="assets/services/vue.3.js"></script>
     <script src="assets/services/product.js"></script>
 <script src="assets/loginModal.js"></script>
+
 </body>
 </html>
 
