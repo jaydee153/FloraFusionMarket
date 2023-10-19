@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2023 at 11:30 AM
+-- Generation Time: Oct 19, 2023 at 03:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -108,7 +108,12 @@ INSERT INTO `products` (`product_ID`, `userID`, `product_image`, `product_name`,
 (36, 13, 'bleulock.jpg', '123', 123, 123, '123123', '2023-10-09 11:52:49'),
 (37, 3, 'capstone.png', '123', 123, 123, '32131', '2023-10-09 11:52:54'),
 (38, 3, 'imgcapstone.png', '1231123', 123123, 12312, '12312', '2023-10-09 11:52:56'),
-(39, 3, 'bleulock.jpg', 'qweqw', 12312, 123, '123123aeqw', '2023-10-09 11:38:12');
+(39, 3, 'bleulock.jpg', 'qweqw', 12312, 123, '123123aeqw', '2023-10-09 11:38:12'),
+(40, 3, 'pink.jpg', 'pitik cactus', 150, 15, 'pitik cactus', '2023-10-19 11:40:07'),
+(41, 3, 'cactus.jpg', 'cactus', 300, 15, 'cactus is a blah blah', '2023-10-19 13:43:09'),
+(42, 3, 'pink.jpg', 'sunflower', 250, 15, 'sunflower', '2023-10-19 13:44:02'),
+(43, 3, 'sunrose.jpg', 'Succulent', 300, 10, 'sunrose', '2023-10-19 13:47:25'),
+(44, 3, 'sunrose.jpg', 'sunrose', 400, 10, 'sunrose', '2023-10-19 13:48:35');
 
 -- --------------------------------------------------------
 
@@ -228,7 +233,8 @@ INSERT INTO `user_table` (`id`, `name`, `email`, `password`, `role`, `status`, `
 (11, 'x', 'xx@gmail.com', '9336ebf25087d91c818ee6e9ec29f8c1', 1, 1, 'imgScreenshot 2023-09-05 224156.png', 'mahayahay bankal lapu-lapu city', 'mahayahay bankal lapu-lapu city', '09554593878', 1, '2023-12-12', '2023-10-05 10:11:26'),
 (12, 'xx', 'xxx@gmail.com', 'f561aaf6ef0bf14d4208bb46a4ccb3ad', 2, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '0000-00-00', '2023-10-05 10:16:10'),
 (13, 'jepoy', 'jepoy@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, 1, 'imgcapstone.png', 'mahayahay bankal lapu-lapu city', 'mahayahay bankal lapu-lapu city', '09554593878', 1, '1995-10-10', '2023-10-07 08:00:46'),
-(14, 'jason', 'jason@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '0000-00-00', '2023-10-07 08:31:48');
+(14, 'jason', 'jason@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '0000-00-00', '2023-10-07 08:31:48'),
+(15, 'jason', 'dee@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, '', '', '', '', 0, '0000-00-00', '2023-10-12 13:47:51');
 
 -- --------------------------------------------------------
 
@@ -377,7 +383,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `purchases`
@@ -419,7 +425,7 @@ ALTER TABLE `tracker`
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

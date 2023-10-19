@@ -15,28 +15,28 @@ createApp({
         }
     },
     methods:{
-        addproducts: function(e) {
-            e.preventDefault();
-            var form = e.currentTarget;  
-            const vue = this;
-            var data = new FormData(form); 
-            data.append("method", "AddProduct");
+        // addproducts: function(e) {
+        //     e.preventDefault();
+        //     var form = e.currentTarget;  
+        //     const vue = this;
+        //     var data = new FormData(form); 
+        //     data.append("method", "AddProduct");
             
-            axios.post('/florafusionmarket/includes/router.php', data)
-                .then(function(r) {
-                    if (r.data == 200) {
-                        vue.GetProduct();
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Successfully Created',
-                            showConfirmButton: false,
-                            timer: 1500  
-                        }).then(function() {
-                            window.location.reload();
-                        });
-                    }
-                });
-        },     
+        //     axios.post('/florafusionmarket/includes/router.php', data)
+        //         .then(function(r) {
+        //             if (r.data == 200) {
+        //                 vue.GetProduct();
+                        // Swal.fire({
+                        //     icon: 'success',
+                        //     title: 'Successfully Created',
+                        //     showConfirmButton: false,
+                        //     timer: 1500  
+                        // }).then(function() {
+                        //     window.location.reload();
+                        // });
+        //             }
+        //         });
+        // },     
         GetProduct:function(){
             const vue = this;
             var data = new FormData();
@@ -209,7 +209,7 @@ createApp({
     },
     created:function(){
         this.GetProduct();
-        this.getProductById();
+        // this.getProductById();
         this.GetProductFromIndex();
     }
 }).mount('#product')

@@ -35,7 +35,7 @@ function addUserInfo()
     echo $backend->doAddUserInfo($filename, $_POST['currentAddress'], $_POST['permanentAddress'], $_POST['contactNo'], $_POST['gender'], $_POST['birthday'], $_SESSION['id']);
 }
 
-function AddProduct()
+function addProduct()
 {
     $backend = new backend();
     $location = "../assets/img/";
