@@ -119,23 +119,24 @@ if (!isset($_SESSION['id'])) {
       
 
         <!-- Category Drop-down and Search Bar -->
-        <div class="flex justify-between items-center mb-4 ml-20">
-            <div class="relative w-1/3 ml-20">
-                <select name="plant" id="plant"
-                    class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                    <!-- Add mx-auto and ml-20 here -->
+        <div class="flex mb-4 ml-20">
+            <div class="relative w-60 ml-28 top-10">
+                <select name="plant" id="plant" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                     <option value="">All Categories</option>
-                    <option value="category1">Category 1</option>
-                    <option value="category2">Category 2</option>
+                    <option value="category1">Succulent</option>
+                    <option value="category2">Cactus</option>
+                    <option value="category3">Shrubs</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
             <div class="ml-auto">
-                <input
-                    class="appearance-none block bg-white text-gray-700 border border-gray-300 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mr-20"
+              <div class="relative mr-56 top-10">
+                <input class="appearance-none block bg-white text-gray-700 border border-gray-300 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mr-20"
                     id="search" v-model="search" type="text" placeholder="Search products...">
+              </div>
+                
             </div>
         </div>
 
@@ -143,8 +144,8 @@ if (!isset($_SESSION['id'])) {
 <div id="product">
   <section id="section2" class="bg-white py-8">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
-      <div class="max-w-5xl mx-auto p-4">
+      <h2 class="text-3xl font-bold mb-4 text-center">Featured Products</h2>
+      <div class="max-w-5xl mx-auto p-1">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <div class="p-2 w-64 m-2" v-for="product in productsFromIndex" :key="product.product_ID">
             <div class="bg-white rounded-lg shadow-md relative">
@@ -153,15 +154,15 @@ if (!isset($_SESSION['id'])) {
                 <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
                 <p class="text-gray-600">{{ product.des }}</p>
                 <div class="mt-2">
-                  <span class="text-blue-500 font-semibold">₱{{ product.price }}</span>
-                  <span class="text-gray-500 ml-2 line-through">{{ product.oldPrice }}</span>
+                  <span class="text-blue-500 font-semibold"> P{{ product.price }}</span>
+                  <span class="text-gray-500 ml-2 line-through">P{{ product.oldPrice }}</span>
                 </div>
                 <div class="mt-3 flex justify-center">
-                  <button class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600" @click="addToCart(product.product_ID)">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                  <button class="text-red-500 hover:text-gray-500" @click="addToWishlist(product.product_ID)">
+                  <i class="fas fa-heart"></i>
                   </button>
-                  <button class="text-gray-500 hover:text-red-500 ml-2" @click="addToWishlist(product.product_ID)">
-                    <i class="fas fa-heart"></i> Add to Wishlist
+                  <button class="text-green-600 hover:text-gray-500 ml-2" @click="addToCart(product.product_ID)">
+                  <i class="fas fa-cart-plus"></i>
                   </button>
                 </div>
               </div>
@@ -172,10 +173,13 @@ if (!isset($_SESSION['id'])) {
     </div>
   </section>
 
-  <!-- Modal for Update Plant -->
+  <!-- Modal for view Plant -->
   <div class="modal fade" id="View" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-4">
+      <div class="modal-content p-4 relative">
+        <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeModal('View')">
+            <i class="fas fa-times"></i>
+        </button>
         <div class="modal-header">
           <h5 class="modal-title text-2xl font-semibold mb-4">View</h5>
         </div>
@@ -187,13 +191,13 @@ if (!isset($_SESSION['id'])) {
                 <h2 class="text-2xl font-semibold" name="name" id="name">{{ name }}</h2> 
               </div>
               <div class="table-cell">
-                <p class="text-lg font-bold text-green-500" name="price" id="price">{{ price }}</p>
+                <p class="text-lg font-bold text-green-500" name="price" id="price">P{{ price }}</p>
               </div>
               <div class="table-cell">
-                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-full" name="wishlist" id="wishlist" @click="addToWishlist(product_ID)">Add to Wishlist</a>
+                <a href="#" class="text-red-600 hover:text-gray-500" name="wishlist" id="wishlist" @click="addToWishlist(product_ID)"><i class="fas fa-heart"></i></a>
               </div>
               <div class="table-cell">
-                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-full" @click="addToCart(product_ID)">Add to Cart</a>
+                <a href="#" class="text-green-600 hover:text-gray-500" @click="addToCart(product_ID)"><i class="fas fa-cart-plus"></i></a>
               </div>
             </div>
           </div> 
@@ -217,6 +221,7 @@ if (!isset($_SESSION['id'])) {
 </div>
 
 
+  <script src="../assets/close_modal.js"></script>
     <script src="../assets/css/jquery.js"></script>
     <script src="../assets/css/toastr.js"></script>
     <script src="../assets/css/bootstrap.js"></script>

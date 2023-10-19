@@ -1,16 +1,3 @@
-<?php 
-    //  session_start();  
-    // if(!isset($_SESSION['id'])){
-    //     header('location: index.php');
-    //     $role = $_SESSION['role'];
-    //      if($role == 0){
-    //       header('location: /FloraFusion/Admin/index.php');
-    //     }else{
-    //         echo "You Need To Logged in!";
-    //     }
-    // }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,8 +50,6 @@
 </div>
 </div>
 
-
-
 <!-- Main Content -->
 <div class="flex-1 p-28 relative">
     <!-- Profile Icon in the top right corner -->
@@ -72,37 +57,65 @@
 
     <!-- Right Side Content -->
     <div class="flex items-center">
-        <!-- Number of Customers -->
-        <div class="bg-white p-4 rounded-lg shadow-md mr-2">
-            <div class="flex items-center space-x-4">
-                <div class="bg-blue-400 text-white p-3 rounded-full">
-                    <!-- Add an icon or text to represent customers -->
-                    <i class="fas fa-users"></i>
-                </div>
-                <div>
-                    <p class="text-xl font-semibold">Customers</p>
-                    <p class="text-3xl font-bold">1234</p> <!-- Replace with the actual number of customers -->
-                </div>
-            </div>
-        </div>
+        <p class="text-xl font-semibold">Sellers</p>
+    </div>
 
-        <!-- Number of Sellers -->
-        <div class="bg-white p-4 rounded-lg shadow-md ml-2">
-            <div class="flex items-center space-x-4">
-                <div class="bg-blue-400 text-white p-3 rounded-full">
-                    <!-- Add an icon or text to represent sellers -->
-                    <i class="fas fa-store"></i>
-                </div>
-                <div>
-                    <p class="text-xl font-semibold">Sellers</p>
-                    <p class="text-3xl font-bold">567</p> <!-- Replace with the actual number of sellers -->
-                </div>
-            </div>
-        </div>
+    <!-- Sellers Table -->
+    <div class="mt-6">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Image
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Contact Number
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Add your table rows for sellers here -->
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        1
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <img src="seller1.jpg" alt="Seller Image" class="h-8 w-8">
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        Seller Name 1
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        123-456-7890
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        456 Market St, City
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <button class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows for other sellers as needed -->
+            </tbody>
+        </table>
     </div>
 </div>
 
 
 
+
 </body>
 </html>
+

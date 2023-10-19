@@ -15,7 +15,7 @@ createApp({
         var data = new FormData(e.currentTarget);
         data.append("method", "Login");
       
-        axios.post('/florafusionmarket/includes/router.php', data)
+        axios.post('../florafusionmarket/includes/router.php', data)
           .then(function (r) {
             if (r.data == 1) {
               Swal.fire({
@@ -72,17 +72,17 @@ createApp({
             var vue = this;
             var data = new FormData(form);
             data.append("method","Register");
-            axios.post('/florafusionmarket/includes/router.php',data)
+            axios.post('../florafusionmarket/includes/router.php',data)
             .then(function(r){
                 if(r.data == 1){
                     alert('Successfully Register');
-                    window.location.href ="./Customer/index.php";
-                    // window.location.reload();
+                    // window.location.href ="cus_info.php";
+                    window.location.reload();
                 }
                 else if(r.data == 2){
                     alert('Successfully Register');
-                    window.location.href ="./seller/index";
-                    // window.location.reload();
+                    // window.location.href ="cus_info.php";
+                    window.location.reload();
                 }
                 else if(r.data == 3){
                     alert('Already Registered');

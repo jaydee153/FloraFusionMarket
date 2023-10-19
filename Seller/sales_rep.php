@@ -24,8 +24,8 @@
     <title>sales Report</title>
 </head>
 <body>
-    <div class="flex p-8 space-x-8">
-    <div class=" bg-green-300 text-black p-4">
+<div class="flex">
+    <div class="bg-green-300 text-black p-4">
         <div class="bg-green-300 text-black h-screen w-64 flex flex-col">
     <div class="p-4">
     <img src="../assets/img/FloraFusion.jpg" class="h-8 mr-3" alt="Plant Logo" />
@@ -83,8 +83,9 @@
 </div>
 </div>
 <div>
-<div class="flex-1 bg-white p-4 shadow-md">
-    <h2 class="text-xl font-semibold mb-4">Sales Report of the Month of</h2>
+<div class="flex-1 bg-white  shadow-md">
+    <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
+    <h2 class="text-xl font-semibold mt-20">Sales Report of the Month of</h2>
 
     <!-- Search bar -->
     <div class="flex justify-between items-center mb-4">

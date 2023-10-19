@@ -112,7 +112,7 @@
         </div>
     </nav>
 <!-- section1 -->
-<section id="section1" class="bg-green-300 py-8">
+<section id="section1" class="bg-green-300 py-8 bg-cover bg-center h-screen flex items-center justify-center">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
     <div class="mt-10 ml-6">
       <h2 class="text-4xl font-bold text-center text-green-800 mt-10">FloraFusion Market</h2>
@@ -139,9 +139,9 @@
 <!-- section 2-->
 
 <div id="product">
-  <section id="section2" class="bg-white py-8">
+  <section id="section2" class="bg-white py-8 bg-cover bg-center h-screen flex items-center justify-center">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
+      <h2 class="text-3xl font-bold mb-4 text-center">Featured Products</h2>
       <div class="max-w-5xl mx-auto p-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <div class="p-2 w-64 m-2" v-for="product in productsFromIndex" :key="product.product_ID">
@@ -151,15 +151,15 @@
                 <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
                 <p class="text-gray-600">{{ product.des }}</p>
                 <div class="mt-2">
-                  <span class="text-blue-500 font-semibold">{{ product.price }}</span>
-                  <span class="text-gray-500 ml-2 line-through">{{ product.oldPrice }}</span>
+                  <span class="text-blue-500 font-semibold">P{{ product.price }}</span>
+                  <span class="text-gray-500 ml-2 line-through">P{{ product.oldPrice }}</span>
                 </div>
                 <div class="mt-3 flex justify-center">
-                  <button class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600" @click="addToCart(product.product_ID)">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                  <button class="text-red-500 hover:text-gray-500">
+                    <i class="fas fa-heart"></i>
                   </button>
-                  <button class="text-gray-500 hover:text-red-500 ml-2">
-                    <i class="fas fa-heart"></i> Add to Wishlist
+                  <button class="text-green-600 hover:text-gray-500 ml-2" @click="addToCart(product.product_ID)">
+                    <i class="fas fa-cart-plus"></i>
                   </button>
                 </div>
               </div>
@@ -214,7 +214,7 @@
 </div>
 
 <!-- section 3 -->
-  <section id="section3" class="bg-gray-100 py-8">
+  <section id="section3" class="bg-gray-100 py-8 bg-cover bg-center h-screen flex items-center justify-center">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-4">What our Customers Say</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

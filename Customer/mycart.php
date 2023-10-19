@@ -95,8 +95,8 @@ if (!isset($_SESSION['id'])) {
                         <td class="py-2 px-4">
                             <h3 class="text-lg font-semibold mt-2">{{ c.p_name }}</h3>
                         </td>
-                        <td class="py-2 px-4">{{ c.p_price }}</td>
-                        <td class="py-2 px-4">
+                        <td class="py-2 px-4">P{{ c.p_price }}</td>
+                        <!-- <td class="py-2 px-4">
                             <div class="flex items-center">
                                 <button @click="minus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
                                     <i class="fas fa-minus"></i>
@@ -107,7 +107,20 @@ if (!isset($_SESSION['id'])) {
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
+                        </td> -->
+
+                        <td class="py-2 px-4">
+                            <div class="flex items-center">
+                                <button @click="minus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="w-12 text-center">{{ c.p_quantity }}</span>
+                                <button @click="plus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
                         </td>
+
                         <td class="py-2 px-4">{{ c.p_totalPrice }}</td>
                         <td class="py-2 px-4">
                             <button class="text-red-500 hover:text-red-700 focus:outline-none" @click="deleteCart(c.id)">
