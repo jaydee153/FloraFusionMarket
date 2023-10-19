@@ -86,11 +86,11 @@ if (!isset($_SESSION['id'])) {
                         class="mx-auto w-32 h-32 object-cover rounded-md">
                     <div class="text-center mt-2">
                         <h3 class="text-lg font-semibold">{{ w.product_name }}</h3>
-                        <p class="text-gray-600">{{ w.product_price }}</p>
+                        <p class="text-gray-600">P{{ w.product_price }}</p>
                     </div>
                     <div class="flex justify-center mt-4 space-x-4">
-                        <button class="text-gray-600 hover:text-red-500"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 hover:text-green-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
+                        <button class="text-red-600 hover:text-gray-500"><i class="fas fa-heart"></i></button>
+                        <button class="text-green-600 hover:text-gray-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
                     </div>
                 </div>
             </div>

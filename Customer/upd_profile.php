@@ -22,6 +22,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/sweetalert.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    
     <title>Update Profile</title>
 </head>
 
@@ -40,7 +41,7 @@
                         <li><a href="mycart.php" class="text-gray"><i class="fas fa-shopping-cart"></i></a></li>
                         <!-- Profile Dropdown Trigger -->
                         <li>
-                            <button id="profile-menu-button"><img src="/florafusion/assets/img/defaultProfilePicture.jpg"
+                            <button id="profile-menu-button"><img src="../assets/img/defaultProfilePicture.jpg"
                                     alt="default" width="36" height="36" class="rounded-full"></i></button>
                         </li>
                     </ul>
@@ -75,60 +76,92 @@
         </nav>
 
         <div class="container flex justify-center items-center min-h-screen bg-gray-100">
-            <div class="bg-gray-200 p-8 rounded shadow-md w-full max-w-lg">
-                <h2 class="text-2xl font-semibold mb-4 text-center">Update Customer Details</h2>
-                <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-                    <h1 class="text-2xl font-semibold mb-4">Customer Details</h1>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
-                            Profile Image
-                        </label>
-                        <input type="file" id="file" name="file">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="currentAddress">
-                            Current Address
-                        </label>
-                        <input class="border rounded w-full py-2 px-3" id="currentAddress" type="text"
-                            placeholder="Enter your current address" name="currentAddress">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="permanentAddress">
-                            Permanent Address
-                        </label>
-                        <input class="border rounded w-full py-2 px-3" id="permanentAddress" type="text"
-                            placeholder="Enter your permanent address" name="permanentAddress">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNo">
-                            Contact No.
-                        </label>
-                        <input class="border rounded w-full py-2 px-3" id="contactNo" type="text"
-                            placeholder="Enter your contact number" name="contactNo">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
-                        <div class="mt-2">
-                            <select id="gender">
-                                <option selected disabled value="0">Gender</option>
-                                <option value="1">Male</option>
-                                <option value="2">Famale</option>
-                            </select>
+    <div class=" p-8 rounded shadow-md w-full max-w-2xl">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Update Personal Information</h2>
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-2xl flex">
+            <!-- Left Side (Personal Information) -->
+            <div class="w-1/2 pr-4">
+                <div class="mb-4 text-center">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
+                    Profile Image
+                </label>
+                <div class="relative inline-block">
+                    <label for="file" class="cursor-pointer">
+                        <img src="../assets/img/bleulock.jpg" alt="Your Profile" class="w-32 h-32 rounded-full object-cover mb-2">
+                        <div>
+                            <i class="fas fa-upload text-gray-400 text-2xl"></i>
                         </div>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
-                            Birthday
-                        </label>
-                        <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday">
-                    </div>
-                    <div class="mt-6">
-                        <button @click="CSInfo" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Proceed</button>
-                    </div>
+                    </label>
+                    <input type="file" id="file" name="file" class="hidden">
                 </div>
             </div>
+
+
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                        Name
+                    </label>
+                    <p class="border rounded w-full py-2 px-3" id="name" type="text">Janah Darielyn P. Germo</p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email
+                    </label>
+                    <input class="border rounded w-full py-2 px-3" id="email" type="email" placeholder="Enter your email" name="email">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                        Password
+                    </label>
+                    <input class="border rounded w-full py-2 px-3" id="password" type="password" placeholder="Enter your password" name="password">
+                </div>
+            </div>
+
+            <!-- Right Side (Address and Contact Information) -->
+            <div class="w-1/2 pl-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="currentAddress">
+                        Current Address
+                    </label>
+                    <input class="border rounded w-full py-2 px-3" id="currentAddress" type="text" placeholder="Enter your current address" name="currentAddress">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="permanentAddress">
+                        Permanent Address
+                    </label>
+                    <p class="border rounded w-full py-2 px-3" id="permanentAddress" type="text">Dapitan Cordova</p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNo">
+                        Contact No.
+                    </label>
+                    <input class="border rounded w-full py-2 px-3" id="contactNo" type="text" placeholder="Enter your contact number" name="contactNo">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                    <div class="mt-2">
+                        <p id="gender">
+                            Female
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
+                        Birthday
+                    </label>
+                    <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday">
+                </div>
+                <div class="mt-6 ml-28 text-center">
+            <button @click="CSInfo" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Update</button>
         </div>
+            </div>
+        </div>
+        
     </div>
+</div>
+
+
     <link rel="stylesheet" href="../assets/css/sweetalert.js">
     <script src="../assets/drop_down.js"></script>
     <script src="../assets/services/axios.js"></script>

@@ -24,9 +24,8 @@ createApp({
                 .then(function(r){
                     if(r.data == 200){
                         toastr.success('Successfully increase the Quantity');
-                        window.location.reload();
                     }
-                    // window.location.reload();
+                    window.location.reload();
                     // if(r.data = 'SuccessfullyUpdated'){
                     //     vue.displayCart();
                     // }else{
@@ -80,7 +79,7 @@ createApp({
             .then(function(r){
                 if(r.data == 200){
                     vue.displayCart();
-                    toastr.success('Plant deleted successfully');
+                    toastr.success('Deleted to Cart');
                 }
             })
         }
