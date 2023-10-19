@@ -114,7 +114,7 @@ if (!isset($_SESSION['id'])) {
                 <td class="py-2 px-3"><img :src="'../assets/img/' + up.image" alt="" class="w-16 h-16" /></td>
                 <td class="py-2 px-3">{{ up.id }}</td>
                 <td class="py-2 px-3">{{ up.name }}</td>
-                <td class="py-2 px-3">{{ up.quantity }}</td>
+                <td class="py-2 px-3">{{ up.qty }}</td>
                 <td class="py-2 px-3">{{ up.price }}</td>
                 <td class="py-2 px-3">{{ up.desc }}</td>
                 <td class="py-2 px-3">
@@ -146,9 +146,9 @@ if (!isset($_SESSION['id'])) {
                             name="name">
                         <!-- Total Products -->
                         <input type="text" placeholder="Total Products" class="mt-1 p-2 w-full border rounded"
-                            name="price">
+                            name="qty">
                         <!-- Total Products -->
-                        <input type="text" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="qty">
+                        <input type="text" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="price">
                         <!-- Description -->
                         <input type="text" placeholder="Description" class="mt-1 p-2 w-full border rounded" name="desc">
                         <!-- Add Button -->

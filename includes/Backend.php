@@ -31,8 +31,8 @@ class backend{
         return $this->addUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id);
     }
     //add product by seller 
-    public function doAddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID){
-        return $this->AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID);
+    public function doAddProduct($product_image,$product_name,$product_qty,$product_price,$product_desc,$userID){
+        return $this->AddProduct($product_image,$product_name,$product_qty,$product_price,$product_desc,$userID);
     }
     public function doGetProduct(){
         return $this->getProduct();
@@ -169,14 +169,14 @@ class backend{
     }
 
 
-    private function AddProduct($product_image,$product_name,$product_price,$product_qty,$product_desc,$userID)
+    private function AddProduct($product_image,$product_name,$product_qty,$product_price,$product_desc,$userID)
     {
         try{
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->doAddProductData());
-                $query->execute(array($userID, $product_image, $product_name, $product_price, $product_qty, $product_desc));
+                $query->execute(array($userID, $product_image, $product_name, $product_qty, $product_price, $product_desc));
                 $result = $query->fetch();
                 if(!$result){
                     $con->closeConnection();

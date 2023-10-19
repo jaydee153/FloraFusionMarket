@@ -49,7 +49,7 @@ function addProduct()
 
     }
 
-    echo $backend->doAddProduct($filename, $_POST['name'], $_POST['price'], $_POST['qty'], $_POST['desc'], $_SESSION['id']);
+    echo $backend->doAddProduct($filename, $_POST['name'], $_POST['qty'], $_POST['price'], $_POST['desc'], $_SESSION['id']);
 }
 
 function GetProduct()

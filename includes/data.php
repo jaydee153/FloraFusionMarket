@@ -12,7 +12,7 @@ class data{
     }
 
     public function doAddProductData(){
-        return "INSERT INTO `products` (`userID`,`product_image`,`product_name`,`product_price`,`product_qty`,`product_des`) VALUES (?, ?, ?, ?, ?, ?)";
+        return "INSERT INTO `products` (`userID`,`product_image`,`product_name`,`product_qty`,`product_price`,`product_des`) VALUES (?, ?, ?, ?, ?, ?)";
     }
 
     public function doGetProductData(){
