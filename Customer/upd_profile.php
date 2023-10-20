@@ -27,7 +27,6 @@
 </head>
 
 <body class="bg-gray-100">
-    <div id="userinfo">
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <div class="flex items-center">
@@ -41,8 +40,8 @@
                         <li><a href="mycart.php" class="text-gray"><i class="fas fa-shopping-cart"></i></a></li>
                         <!-- Profile Dropdown Trigger -->
                         <li>
-                            <button id="profile-menu-button"><img src="../assets/img/defaultProfilePicture.jpg"
-                                    alt="default" width="36" height="36" class="rounded-full"></i></button>
+                            <button id="profile-menu-button"><img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>"
+                                    alt="default" style="height:35px;width:35px;border-radius: 40px;"></i></button>
                         </li>
                     </ul>
                 </div>
@@ -74,25 +73,25 @@
                 </div>
             </div>
         </nav>
-
+        <div id="userinfo">
         <div class="container flex justify-center items-center min-h-screen bg-gray-100">
     <div class=" p-8 rounded shadow-md w-full max-w-2xl">
         <h2 class="text-2xl font-semibold mb-4 text-center">Update Personal Information</h2>
         <div class="bg-white p-8 rounded shadow-md w-full max-w-2xl flex">
             <!-- Left Side (Personal Information) -->
             <div class="w-1/2 pr-4">
-                <div class="mb-4 text-center">
+            <div class="mb-4 text-center">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
                     Profile Image
                 </label>
                 <div class="relative inline-block">
                     <label for="file" class="cursor-pointer">
-                        <img src="../assets/img/bleulock.jpg" alt="Your Profile" class="w-32 h-32 rounded-full object-cover mb-2">
-                        <div>
-                            <i class="fas fa-upload text-gray-400 text-2xl"></i>
+                        <img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>" alt="Your Profile" class="w-32 h-32 rounded-full object-cover mb-2">           
+                         <div>
+                        <i class="fas fa-upload text-gray-400 text-2xl"></i>
                         </div>
                     </label>
-                    <input type="file" id="file" name="file" class="hidden">
+                    <input type="file" id="file" name="file" class="hidden" disabled>
                 </div>
             </div>
 
@@ -102,68 +101,71 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                         Name
                     </label>
-                    <p class="border rounded w-full py-2 px-3" id="name" type="text">Janah Darielyn P. Germo</p>
+                    <input class="border rounded w-full py-2 px-3" id="name" type="text" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" disabled>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         Email
                     </label>
-                    <input class="border rounded w-full py-2 px-3" id="email" type="email" placeholder="Enter your email" name="email">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Password
-                    </label>
-                    <input class="border rounded w-full py-2 px-3" id="password" type="password" placeholder="Enter your password" name="password">
+                    <input class="border rounded w-full py-2 px-3" id="email" type="email" placeholder="Enter your email" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" disabled>
                 </div>
             </div>
 
             <!-- Right Side (Address and Contact Information) -->
             <div class="w-1/2 pl-4">
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="currentAddress">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="current_add">
                         Current Address
                     </label>
-                    <input class="border rounded w-full py-2 px-3" id="currentAddress" type="text" placeholder="Enter your current address" name="currentAddress">
+                    <input class="border rounded w-full py-2 px-3" id="current_add" type="text" placeholder="Enter your current address" name="current_add" value="<?php echo isset($_SESSION['current_add']) ? $_SESSION['current_add'] : '' ?>" disabled>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="permanentAddress">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="permanent_add">
                         Permanent Address
                     </label>
-                    <p class="border rounded w-full py-2 px-3" id="permanentAddress" type="text">Dapitan Cordova</p>
+                    <input class="border rounded w-full py-2 px-3" id="permanent_add" name="permanent_add" type="text" placeholder="Enter your permanent address" value="<?php echo isset($_SESSION['permanent_add']) ? $_SESSION['permanent_add'] : '' ?>" disabled></input>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNo">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="contact_no">
                         Contact No.
                     </label>
-                    <input class="border rounded w-full py-2 px-3" id="contactNo" type="text" placeholder="Enter your contact number" name="contactNo">
+                    <input class="border rounded w-full py-2 px-3" id="contact_no" type="text" placeholder="Enter your contact number" name="contact_no"  value="<?php echo isset($_SESSION['contact_no']) ? $_SESSION['contact_no'] : '' ?>" disabled>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
                     <div class="mt-2">
-                        <p id="gender">
-                            Female
-                        </p>
+                    <select id="gender" class="form-control" name="gender" disabled>
+                    <?php
+                    $genderValue = isset($_SESSION['gender']) ? $_SESSION['gender'] : '';
+                    ?>
+                    <option value="1" <?php if ($genderValue == 1) echo 'selected'; ?>>Male</option>
+                    <option value="2" <?php if ($genderValue == 2) echo 'selected'; ?>>Female</option>
+                </select>
+
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
                         Birthday
                     </label>
-                    <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday">
+                    <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday"  value="<?php echo isset($_SESSION['birthday']) ? $_SESSION['birthday'] : '' ?>" disabled>
                 </div>
-                <div class="mt-6 ml-28 text-center">
-            <button @click="CSInfo" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Update</button>
+                <div class="mt-6 ml-28 text-center" style="display: flex; justify-content: center;">
+                    <button type="button" id="edit" value="edit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Edit</button>
+                    <button type="button" id="cancel" value="cancel" class="bg-blue-500 text-white py-2 px-4 rounded hover-bg-blue-600 focus:outline-none" style="display: none; margin-right: 10px;">Cancel</button>
+                    <button  @click="CSInfo" id="update" class="bg-blue-500 text-white py-2 px-4 rounded hover-bg-blue-600 focus:outline-none" style="display: none; margin-left: 10px;">Update</button>
+                </div>
+            </div>
         </div>
         
     </div>
 </div>
-
 
     <link rel="stylesheet" href="../assets/css/sweetalert.js">
     <script src="../assets/drop_down.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>
     <script src="../assets/services/userinfo.js"></script>
+    <script src="../assets/updateprofilebutton.js"></script>
 </body>
 </html>

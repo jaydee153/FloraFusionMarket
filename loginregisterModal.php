@@ -51,7 +51,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
                             Profile Image
                         </label>
-                        <input type="file" id="file" name="file">
+                        <input type="file" id="file" name="image">
                     </div>
                     <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-600">Name</label>
@@ -71,24 +71,24 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="currentAddress">
                             Current Address
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="currentAddress" type="text" placeholder="Enter your current address">
+                        <input class="border rounded w-full py-2 px-3" id="current_add" name="current_add" type="text" placeholder="Enter your current address">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="permanentAddress">
                             Permanent Address
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="permanentAddress" type="text" placeholder="Enter your permanent address">
+                        <input class="border rounded w-full py-2 px-3" id="permanent_add" name="permanent_add" type="text" placeholder="Enter your permanent address">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNo">
                             Contact No.
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="contactNo" type="text" placeholder="Enter your contact number">
+                        <input class="border rounded w-full py-2 px-3" id="contact_no" name="contact_no" type="text" placeholder="Enter your contact number">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
                         <div class="mt-2">
-                            <select id="gender">
+                            <select id="gender" name="gender">
                                 <option value="1">Male</option>
                                 <option value="2">Female</option>
                             </select>

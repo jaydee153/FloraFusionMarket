@@ -25,7 +25,6 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body class="bg-gray-100">
-    <div id="wishlist">
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <div class="flex items-center">
@@ -39,9 +38,7 @@ if (!isset($_SESSION['id'])) {
                         <li><a href="mycart.php" class="text-gray"><i class="fas fa-shopping-cart"></i></a></li>
                         <!-- Profile Dropdown Trigger -->
                         <li>
-                            <button id="profile-menu-button"><img
-                                    src="/florafusion/assets/img/<?php echo $_SESSION['image'] ?>" alt="default" width="46"
-                                    height="36" class="rounded-full"></i></button>
+                        <button id="profile-menu-button"><img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>" alt="default" style="height:35px;width:35px;border-radius: 40px;"></i></button>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +71,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
             </div>
         </nav>
-
+        <div id="wishlist">
         <!-- product wishlist -->
         <div class="p-6">
             <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2>

@@ -5,10 +5,10 @@ class data{
     }
 
     public function doRegisterData(){
-        return "INSERT INTO `user_table` (`name`,`email`,`password`,`role`,`status`) VALUES (?,?,?,?, 1)";
+        return "INSERT INTO `user_table` (`name`,`email`,`password`,`role`,`status`,`image`,`current_add`,`permanent_add`,`contact_no`,`gender`,`birthday`) VALUES (?,?,?,?, 1,?,?,?,?,?,?)";
     }
     public function doAddUserInfoData(){
-        return "UPDATE `user_table` SET `image` = ?, `current_add` = ?, `permanent_add` = ?, `contact_no` = ?, `gender` = ?, `birthday` = ? WHERE `id` = ?";
+        return "UPDATE `user_table` SET  `name` = ?, `email` = ?, `image` = ?, `current_add` = ?, `permanent_add` = ?, `contact_no` = ?, `gender` = ?, `birthday` = ? WHERE `id` = ?";
     }
 
     public function doAddProductData(){

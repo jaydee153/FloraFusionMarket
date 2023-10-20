@@ -36,7 +36,7 @@
                     <li><a href="mycart.php" class="text-gray"><i class="fas fa-shopping-cart"></i></a></li>
                     <!-- Profile Dropdown Trigger -->
                     <li>
-                        <button id="profile-menu-button"><img src="/florafusion/assets/img/defaultProfilePicture.jpg" alt="default" width="36" height="36" class="rounded-full"></i></button>
+                    <button id="profile-menu-button"><img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>" alt="default" style="height:35px;width:35px;border-radius: 40px;"></i></button>
                     </li>
                 </ul>
             </div>

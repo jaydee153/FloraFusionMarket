@@ -1,41 +1,34 @@
 const { createApp } = Vue;
 createApp({
-    data() {
-        return {
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    CSInfo: function () {
+      var data = new FormData();
+      data.append("method", "addUserInfo");
+      data.append("file", document.getElementById('file').files[0]);
+      data.append("name", document.getElementById('name').value);
+      data.append("email", document.getElementById('email').value);
+      data.append("current_add", document.getElementById('current_add').value);
+      data.append("permanent_add", document.getElementById('permanent_add').value);
+      data.append("contact_no", document.getElementById('contact_no').value);
+      data.append("gender", document.getElementById('gender').value);
+      data.append("birthday", document.getElementById('birthday').value);
 
-        }
-    },
-    methods: {
-        CSInfo: function () {
-            var data = new FormData();
-            data.append("method", "addUserInfo");
-            data.append("file", document.getElementById('file').files[0]);
-            data.append("currentAddress", document.getElementById('currentAddress').value);
-            data.append("permanentAddress", document.getElementById('permanentAddress').value);
-            data.append("contactNo", document.getElementById('contactNo').value);
-            data.append("gender", document.getElementById('gender').value);
-            data.append("birthday", document.getElementById('birthday').value);
-          
-            axios.post('../includes/router.php', data)
-              .then(function (r) {
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Success',
-                  text: 'Successfully saved',
-                  showConfirmButton: false, // Hide the "OK" button
-                  timer: 2000, // Automatically close the alert after 2 seconds
-                  onClose: function() {
-                    window.location.reload(); // Reload the page after the alert is closed
-                  }
-                });
-              })
-              .catch(function (error) {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Error',
-                  text: 'An error occurred while processing your request.',
-                });
-              });
-          },
+      axios.post('../includes/router.php', data)
+        .then(function (r) {
+          // Simple browser alert for success
+          alert('Successfully updated');
+          window.location.reload(); // Reload the page
+
+        })
+        .catch(function (error) {
+          // Simple browser alert for error
+          alert('An error occurred while processing your request.');
+        });
     }
-}).mount('#userinfo')
+  }
+}).mount('#userinfo');

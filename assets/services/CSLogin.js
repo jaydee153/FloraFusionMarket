@@ -1,11 +1,17 @@
- const { createApp } = Vue;
+const { createApp } = Vue;
 createApp({
     data(){
         return{
             name: '',
             email: '',
             password: '',
-            role: ''
+            role: '',
+            current_add:'',
+            birthday:'',
+            image:'',
+            permanent_add:'',
+            contact_no:'',
+            gender:''
         }
     },
     methods:{

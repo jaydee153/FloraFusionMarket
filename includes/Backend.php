@@ -11,8 +11,8 @@ class backend{
         return $this->doUpdateCartIdPrice($id,$price);
     }
     //register users
-    public function doRegister($name,$email,$password,$role){
-        return $this->register($name,$email,$password,$role);
+    public function doRegister($name,$email,$password,$role,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday){
+        return $this->register($name,$email,$password,$role,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday);
     }
     //getproduct to display seller side
     public function doGetAllProducts($userId){
@@ -27,8 +27,8 @@ class backend{
         return $this->displayAllData();
     }
     //add info to the costumer user
-    public function doAddUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id){
-        return $this->addUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id);
+    public function doAddUserInfo($name,$email,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id){
+        return $this->addUserInfo($name,$email,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id);
     }
     //add product by seller 
     public function doAddProduct($product_image,$product_name,$product_qty,$product_price,$product_desc,$userID){
@@ -88,6 +88,11 @@ class backend{
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['image'] = $row['image'];
+                    $_SESSION['current_add'] = $row['current_add']; 
+                    $_SESSION['permanent_add'] = $row['permanent_add'];
+                    $_SESSION['contact_no'] = $row['contact_no'];
+                    $_SESSION['gender'] = $row['gender']; 
+                    $_SESSION['birthday'] = $row['birthday'];
                 }
 
                 if($role == '1'){
@@ -120,13 +125,13 @@ class backend{
         }
     }
 
-    private function register($name,$email,$password,$role){
+    private function register($name,$email,$password,$role,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday){
         try{
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->doRegisterData());
-                $query->execute(array($name,$email,md5($password),$role));
+                $query->execute(array($name,$email,md5($password),$role,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday));
                 $result = $query->fetch();
                 if(!$result){
                     $con->closeConnection();
@@ -144,13 +149,13 @@ class backend{
         }
     }
 
-    private function addUserInfo($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id){
+    private function addUserInfo($name,$email,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id){
         try{
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->doAddUserInfoData());
-                $query->execute(array($image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id));
+                $query->execute(array($name,$email,$image,$current_add,$permanent_add,$contact_no,$gender,$birthday,$id));
                 $result = $query->fetch();
                 if(!$result){
                     $con->closeConnection();
