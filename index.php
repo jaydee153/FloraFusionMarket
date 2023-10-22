@@ -185,43 +185,29 @@
     </div>
   </div>
 </div>
+
+
 <!-- section 3 -->
-  <section id="section3" class="bg-gray-100 py-8 bg-cover bg-center h-screen flex items-center justify-center">
-  <div class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-4">
-    <h2 class="text-2xl font-semibold mb-4">Top 3 Store Seller Products</h2>
-
-    <!-- Product 1 -->
-    <div class="flex items-center mb-4">
-        <img src="product1-image.jpg" alt="Product 1" class="w-20 h-20 object-cover rounded">
-        <div class="ml-4">
-            <h3 class="text-lg font-semibold">Product 1</h3>
-            <p class="text-gray-600">Description of Product 1.</p>
-            <div class="text-blue-500 font-semibold">Price: $100</div>
+<section id="section3" class="bg-gray-100 py-8 bg-cover bg-center h-screen flex items-center justify-center relative">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4 text-center">What our Customers Say</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div v-for="(testimonial, index) in testimonials" :key="index" class="bg-white shadow rounded-lg p-4">
+          <h3 class="text-xl font-semibold mb-2">{{ rate.name }}</h3>
+          <div class="flex items-center mb-2">
+            <div class="star-rating">
+              &#9733; <!-- HTML entity for a solid star -->
+            </div>
+            <div class="ml-1 text-gray-700">{{ rate.ratings }} stars</div>
+          </div>
+          <p class="text-gray-700 mb-4">{{ rate.message }}</p>
         </div>
+      </div>
+      <button @click="showMore = !showMore" class="absolute bottom-4 right-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">See More</button>
     </div>
-
-    <!-- Product 2 -->
-    <div class="flex items-center mb-4">
-        <img src="product2-image.jpg" alt="Product 2" class="w-20 h-20 object-cover rounded">
-        <div class="ml-4">
-            <h3 class="text-lg font-semibold">Product 2</h3>
-            <p class="text-gray-600">Description of Product 2.</p>
-            <div class="text-blue-500 font-semibold">Price: $80</div>
-        </div>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="flex items-center">
-        <img src="product3-image.jpg" alt="Product 3" class="w-20 h-20 object-cover rounded">
-        <div class="ml-4">
-            <h3 class="text-lg font-semibold">Product 3</h3>
-            <p class="text-gray-600">Description of Product 3.</p>
-            <div class="text-blue-500 font-semibold">Price: $70</div>
-        </div>
-    </div>
-</div>
-
   </section>
+
+
 
 <script src="../assets/css/sweetalert.js"></script>
 <script src="assets/css/bootstrap.js"></script>

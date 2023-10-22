@@ -18,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -100,9 +101,13 @@
             </div>
         </div>
     </div>
+    <!-- Chart container -->
+  <div class="mt-6">
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
 </div>
 
 
-
+<script src="../assets/chart.js"></script>
 </body>
 </html>

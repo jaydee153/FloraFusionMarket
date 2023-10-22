@@ -22,3 +22,11 @@ function closeModal(modalId) {
         modal.style.display = 'none';
     }
 }
+
+// close for rate
+function openModal() {
+    document.getElementById('rateModal').classList.remove('hidden');
+  }
+  document.getElementById('closeModalButton').addEventListener('click', function () {
+    document.getElementById('rateModal').classList.add('hidden');
+  });

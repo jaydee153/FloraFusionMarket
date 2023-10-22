@@ -88,12 +88,15 @@
                     <td class="py-2 px-4">198</td>
                     <td class="py-2 px-4">Delivered</td>
                     <td class="py-2 px-4">
-                        <button class="text-red-500 hover:text-red-700 focus:outline-none">
-                            Delete
-                        </button>
+                    <button class="text-red-500 hover:text-red-700 focus:outline-none">
+                    <i class="fas fa-trash-alt mr-2"></i>
+                    </button>
 
-        <button id="openModalButton" class="text-blue-500 hover:text-blue-700 ml-2 focus:outline-none">Rate
-    </button>
+                    <button id="openModalButton" class="text-blue-500 hover:text-blue-700 ml-2 focus:outline-none">
+                    <i class="fas fa-star mr-2"></i>
+                    </button>
+
+
                     </td>
                 </tr>
 
@@ -150,9 +153,9 @@
                 <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none" onclick="submitRating()">
                     Submit
                 </button>
-                <button class="text-red-500 hover:text-red-700 ml-2 focus:outline-none" onclick="closeRatingModal()">
+                <!-- <button class="text-red-500 hover:text-red-700 ml-2 focus:outline-none" onclick="closeRatingModal()">
                     Cancel
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
@@ -160,5 +163,6 @@
     <?php include '../Customer/rateModal.php'; ?>
      <script src="../assets/rateModal.js"></script>
     <script src="../assets/drop_down.js"></script>
+    <script src="../assets/close_modal.js"></script>
 </body>
 </html>

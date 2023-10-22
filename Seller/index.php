@@ -21,6 +21,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Seller Dashboard</title>
 </head>
 <body>
@@ -73,28 +75,32 @@
     </div>
 
     <div class="flex-1 bg-white p-4 mt-28 shadow-md">
-    <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
-    <div class="flex items-center">
-        <div class="bg-green-500 p-4 rounded-md text-black mr-2">
-            <h3 class="text-xl font-semibold">Number of Plants</h3>
-            <p class="text-4xl">150</p>
-        </div>
-        <div class="bg-blue-500 p-4 rounded-md text-black ml-2">
-            <h3 class="text-xl font-semibold">Number of Orders</h3>
-            <p class="text-4xl">150</p>
-        </div>
+  <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
+  <div class="flex items-center">
+    <div class="bg-green-500 p-4 rounded-md text-black mr-2">
+      <h3 class="text-xl font-semibold">Number of Plants</h3>
+      <p class="text-4xl">150</p>
     </div>
+    <div class="bg-blue-500 p-4 rounded-md text-black ml-2">
+      <h3 class="text-xl font-semibold">Number of Orders</h3>
+      <p class="text-4xl">150</p>
+    </div>
+  </div>
+
+  <!-- Chart container -->
+  <div class="mt-6">
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
+</div>
+</div>
+</div>
 </div>
 
-</div>
-
-</div>
 
 
 
 
 
-
-
+<script src="../assets/chart.js"></script>
 </body>
 </html>

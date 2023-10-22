@@ -151,10 +151,19 @@
                     <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday"  value="<?php echo isset($_SESSION['birthday']) ? $_SESSION['birthday'] : '' ?>" disabled>
                 </div>
                 <div class="mt-6 ml-28 text-center" style="display: flex; justify-content: center;">
-                    <button type="button" id="edit" value="edit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">Edit</button>
-                    <button type="button" id="cancel" value="cancel" class="bg-blue-500 text-white py-2 px-4 rounded hover-bg-blue-600 focus:outline-none" style="display: none; margin-right: 10px;">Cancel</button>
-                    <button  @click="CSInfo" id="update" class="bg-blue-500 text-white py-2 px-4 rounded hover-bg-blue-600 focus:outline-none" style="display: none; margin-left: 10px;">Update</button>
-                </div>
+  <button type="button" id="edit" value="edit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
+    <i class="fas fa-edit mr-2"></i> Edit
+  </button>
+
+  <button type="button" id="cancel" value="cancel" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none" style="display: none; margin-right: 10px;">
+    <!-- <i class="fas fa-times mr-2"></i> --> Cancel
+  </button>
+
+  <button @click="CSInfo" id="update" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none" style="display: none; margin-left: 10px;">
+    <!-- <i class="fas fa-save mr-2"></i> -->  Update
+  </button>
+</div>
+
             </div>
         </div>
         

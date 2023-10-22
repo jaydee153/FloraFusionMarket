@@ -95,30 +95,19 @@ if (!isset($_SESSION['id'])) {
                             <h3 class="text-lg font-semibold mt-2">{{ c.p_name }}</h3>
                         </td>
                         <td class="py-2 px-4">P{{ c.p_price }}</td>
-                        <!-- <td class="py-2 px-4">
-                            <div class="flex items-center">
-                                <button @click="minus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <input type="number" :id="c.id" class="w-12 text-center border rounded focus:outline-none"
-                                    :value="c.p_quantity">
-                                <button  @click="plus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </td> -->
 
                         <td class="py-2 px-4">
-                            <div class="flex items-center">
-                                <button @click="minus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="w-12 text-center">{{ c.p_quantity }}</span>
-                                <button @click="plus(c.p_quantity, c.id)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
+                        <div class="flex items-center">
+                            <button @click="decrement(c)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="w-12 text-center">{{ c.p_quantity }}</span>
+                            <button @click="increment(c)" class="text-gray-500 hover:text-blue-500 focus:outline-none">
+                            <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                         </td>
+
 
                         <td class="py-2 px-4">{{ c.p_totalPrice }}</td>
                         <td class="py-2 px-4">

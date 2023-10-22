@@ -5,7 +5,3 @@ const rateModal = document.getElementById('rateModal');
 openModalButton.addEventListener('click', () => {
     rateModal.classList.remove('hidden');
 });
-
-closeModalButton.addEventListener('click', () => {
-    rateModal.classList.add('hidden');
-});
