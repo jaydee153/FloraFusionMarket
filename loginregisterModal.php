@@ -13,12 +13,12 @@
                 <form onsubmit="return login()" @submit="login">
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-                        <input type="text" id="email" name="email" class="mt-1 p-2 w-full border rounded">
+                        <input type="text" id="email" name="email" class="mt-1 p-2 w-full border rounded" required>
                     </div>
                     <div class="mb-4">
                         <label for="login-password" class="block text-sm font-medium text-gray-600">Password</label>
                         <input type="password" id="login-password" name="password"
-                            class="mt-1 p-2 w-full border rounded">
+                            class="mt-1 p-2 w-full border rounded" required>
                     </div>
                     <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
                 </form>
@@ -51,19 +51,19 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
                             Profile Image
                         </label>
-                        <input type="file" id="file" name="image">
+                        <input type="file" id="file" name="image" required>
                     </div>
                     <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-600">Name</label>
-                    <input type="text" id="username" name="username" class="mt-1 p-2 w-full border rounded">
+                    <input type="text" id="username" name="username" class="mt-1 p-2 w-full border rounded" required>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-                    <input type="text" id="email" name="email" class="mt-1 p-2 w-full border rounded">
+                    <input type="text" id="email" name="email" class="mt-1 p-2 w-full border rounded" required>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded">
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded" required>
                 </div>
                 </div>
                 <div class="w-1/2 pl-4"> <!-- Left Side -->
@@ -71,24 +71,24 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="currentAddress">
                             Current Address
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="current_add" name="current_add" type="text" placeholder="Enter your current address">
+                        <input class="border rounded w-full py-2 px-3" id="current_add" name="current_add" type="text" placeholder="Enter your current address" required>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="permanentAddress">
                             Permanent Address
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="permanent_add" name="permanent_add" type="text" placeholder="Enter your permanent address">
+                        <input class="border rounded w-full py-2 px-3" id="permanent_add" name="permanent_add" type="text" placeholder="Enter your permanent address" required>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="contactNo">
                             Contact No.
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="contact_no" name="contact_no" type="text" placeholder="Enter your contact number">
+                        <input class="border rounded w-full py-2 px-3" id="contact_no" name="contact_no" type="text" placeholder="Enter your contact number" required>
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
                         <div class="mt-2">
-                            <select id="gender" name="gender">
+                            <select id="gender" name="gender" required>
                                 <option value="1">Male</option>
                                 <option value="2">Female</option>
                             </select>
@@ -98,7 +98,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
                             Birthday
                         </label>
-                        <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday">
+                        <input class="border rounded w-full py-2 px-3" id="birthday" type="date" name="birthday" required>
                     </div>
                 </div>
                 <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 mt-4">Sign Up</button>

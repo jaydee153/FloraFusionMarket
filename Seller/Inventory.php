@@ -107,10 +107,7 @@ if (!isset($_SESSION['id'])) {
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.price }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <button @click="GETselectedId(product.product_ID)"
-                                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
-                                data-bs-toggle="modal" data-bs-target="#updateprod">Update</button>
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md ml-2"><a href="inventoryprod.php">View</a></button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md ml-2"><a href="inventoryprod.php">Update</a></button>
                             <button @click="deleteProduct(product.product_ID)"
                                 class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md ml-2">Delete</button>
                         </td>
@@ -142,21 +139,21 @@ if (!isset($_SESSION['id'])) {
         </div>
         
     <!-- Modal for Update Plant -->
-    <div class="modal fade" id="updateprod" tabindex="-1">
+    <!-- <div class="modal fade" id="updateprod" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-4">
                 <div class="modal-header">
                     <h5 class="modal-title text-2xl font-semibold mb-4" id="updateprod">Update Category</h5>
                 </div>
-                <form>
+                <form> -->
                     <!-- Total Products -->
-                    <input type="number" placeholder="Total Products" class="mt-1 p-2 w-full border rounded" name="qty"
-                        id="qytUpt">
+                    <!-- <input type="number" placeholder="Total Products" class="mt-1 p-2 w-full border rounded" name="qty"
+                        id="qytUpt"> -->
                     <!-- Total Price -->
-                    <input type="number" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="price"
-                        id="priceUpt">
+                    <!-- <input type="number" placeholder="Total Price" class="mt-1 p-2 w-full border rounded" name="price"
+                        id="priceUpt"> -->
                     <!-- Update Button -->
-                    <div class="d-flex flex-row-reverse">
+                    <!-- <div class="d-flex flex-row-reverse">
                         <button type="submit" @click="updateProduct"
                             class="bg-blue-500 text-white rounded-md py-2 px-4 mx-2 my-2 hover:bg-blue-600"
                             data-bs-dismiss="modal" aria-label="Close">Update</button>
@@ -164,7 +161,7 @@ if (!isset($_SESSION['id'])) {
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     </div>
     <script src="../assets/css/sweetalert.js"></script>
     <script src="../assets/css/bootstrap.js"></script>
