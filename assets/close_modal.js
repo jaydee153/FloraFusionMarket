@@ -30,3 +30,4 @@ function openModal() {
   document.getElementById('closeModalButton').addEventListener('click', function () {
     document.getElementById('rateModal').classList.add('hidden');
   });
+  

@@ -130,14 +130,17 @@ if (!isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
+
+
+    <script src="../assets/services/axios.js"></script>
+    <script src="../assets/services/vue.3.js"></script>
+    <script src="../assets/services/cart.js"></script>
     <script src="../assets/css/jquery.js"></script>
     <script src="../assets/css/toastr.js"></script>
     <script src="../assets/modal_cart.js"></script>
     <script src="../assets/paymentMethod.js"></script>
     <script src="../assets/drop_down.js"></script>
-    <script src="../assets/services/axios.js"></script>
-    <script src="../assets/services/vue.3.js"></script>
-    <script src="../assets/services/cart.js"></script>
+    
 </body>
 
 </html>
