@@ -120,12 +120,17 @@ if (!isset($_SESSION['id'])) {
             </table>
 
             <!-- Cart Total -->
-            <div class="mt-4 flex justify-end items-center">
-                <div class="text-xl font-semibold mr-4">{{ c.p_totalPrice}}</div>
-                <button id="order-details-button"
-                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
-                    Checkout
-                </button>
+            <div class="mt-4 flex flex-col items-end">
+            <div class="text-xl font-semibold mb-2">
+                Total Amout: 
+                <span class="ml-2">{{ c.p_totalPrice }}</span>
+            </div>
+            <button id="order-details-button" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
+                Checkout
+            </button>
+            </div>
+
+
                 <?php include '../Customer/paymentMethod.php'; ?>
             </div>
         </div>

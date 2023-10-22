@@ -140,9 +140,7 @@
         <div>
             <p class="text-xl font-semibold"><strong>Total Amount:</strong> 165.00</p>
         </div>
-        <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"><a href="index.php">Back</a>
-                
-            </button>
+       
     </div>
 
     <script src="../assets/drop_down.js"></script>
