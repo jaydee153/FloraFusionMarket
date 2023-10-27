@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="flex" id="product">
+    <div class="flex" id="adminUP">
     <div class=" bg-green-300 text-black p-4">
         <div class="bg-green-300 text-black h-screen w-64 flex flex-col">
     <div class="p-4">
@@ -91,13 +91,13 @@
         </thead>
         <tbody>
             <!-- Sample inventory items (you can use a loop to populate these) -->
-            <tr>
-                <td class="py-2 px-3"><img src="plant1.jpg" alt="Plant 1" class="w-16 h-16" /></td>
-                <td class="py-2 px-3">001</td>
-                <td class="py-2 px-3">Succulent</td>
-                <td class="py-2 px-3">10</td>
-                <td class="py-2 px-3">P120.00</td>
-                <td class="py-2 px-3">aszdffhdtjyf</td>
+            <tr v-for="Aup in searchData">
+            <td class="py-2 px-3"><img :src="'../assets/img/' + Aup.image" alt="" class="w-16 h-16" /></td>
+                <td class="py-2 px-3">{{ Aup.id }}</td>
+                <td class="py-2 px-3">{{ Aup.name }}</td>
+                <td class="py-2 px-3">{{ Aup.qty }}</td>
+                <td class="py-2 px-3">{{ Aup.price }}</td>
+                <td class="py-2 px-3">{{ Aup.desc }}</td>
                 <td class="py-2 px-3">
                     <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-md ml-2"
                         data-bs-toggle="modal" data-bs-target="#displayprod">Display</button>
@@ -148,7 +148,7 @@
     <script src="../assets/css/bootstrap.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>
-    <script src="../assets/services/product.js"></script>
+    <script src="../assets/services/adminUP.js"></script>
 </body>
 
 </html>

@@ -139,5 +139,32 @@ function dipslayWishlist(){
     $backend = new backend();
     echo $backend->doDisplayWishlist($_SESSION['id']);
 }
-
+//not functional
+function deleteWishlist(){
+    $backend = new backend();
+    echo $backend->doDeleteWishlist($_POST['id']);
+}
+// not functional
+function displayOrder(){
+    $backend = new backend();
+    echo $backend->doDisplayOrder($_SESSION['id']);
+}
+//not display
+function displayCustomerInfo(){
+    $backend = new backend();
+    echo $backend->doDisplayCustomerInfo($_SESSION['role']);
+}
+//not display
+function displaySellerInfo(){
+    $backend = new backend();
+    echo $backend->doDisplaySellerInfo();
+}
+function countCustomers(){
+    $backend = new backend();
+    echo $backend->doCountCustomers();
+}
+function countSellers(){
+    $backend = new backend();
+    echo $backend->doCountSellerss($_SESSION['id']);
+}
 ?>

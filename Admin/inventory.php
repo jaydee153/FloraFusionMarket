@@ -10,7 +10,7 @@
     <title>Inventory</title>
 </head>
 <body>
-<div class="flex">
+<div class="flex" id="adminInventory">
     <div class=" bg-green-300 text-black p-4">
         <div class="bg-green-300 text-black h-screen w-64 flex flex-col">
     <div class="p-4">
@@ -97,11 +97,11 @@
    
 
 
-<script src="../assets/css/sweetalert.js"></script>
+<!-- <script src="../assets/css/sweetalert.js"></script> -->
     <script src="../assets/css/bootstrap.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>
-    <script src="../assets/services/product.js"></script>
+    <script src="../assets/services/adminInventory.js"></script>
 </body>
 </html>
 

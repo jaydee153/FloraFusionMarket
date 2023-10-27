@@ -62,5 +62,27 @@ class data{
     public function doUpdatePrice(){
         return "UPDATE my_cart set quantity = ? WHERE cart_id = ?";
     }
+    // not functional
+    public function getDeleteWishlistData(){
+        return "DELETE FROM wishlist where wishlist_id = ?";
+    }
+    // for order details
+    public function displayOrderDetailsData(){
+        return "SELECT o.order_id, o.order_date, u.name, u.email, u.permanent_add, u.contact_no, p.product_name, p.product_qty, p.product_price, o.total_amount as totalPrice FROM `orders` AS o INNER JOIN user_table AS u INNER JOIN products AS p on o.customer_id = u.id AND o.product_id = p.product_ID WHERE o.customer_id = ?";
+    }
+
+    public function getCustomerData(){
+        return "SELECT * FROM `user_table` WHERE `role` = 1 ORDER BY `created_date`";
+    }
+    public function getSellerData(){
+        return "SELECT * FROM `user_table` WHERE `role` = 2 ORDER BY `created_date`";
+    }
+
+    public function countCustomer(){
+        return "SELECT COUNT(*) FROM `user_table` WHERE `role` = 1";
+    }
+    public function countSeller(){
+        return "SELECT COUNT(*) FROM `user_table` WHERE `role` = 2";
+    }
 }    
 ?>
