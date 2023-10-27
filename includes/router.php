@@ -152,19 +152,11 @@ function displayOrder(){
 //not display
 function displayCustomerInfo(){
     $backend = new backend();
-    echo $backend->doDisplayCustomerInfo($_SESSION['role']);
+    echo $backend->doDisplayCustomerInfo();
 }
 //not display
 function displaySellerInfo(){
     $backend = new backend();
     echo $backend->doDisplaySellerInfo();
-}
-function countCustomers(){
-    $backend = new backend();
-    echo $backend->doCountCustomers();
-}
-function countSellers(){
-    $backend = new backend();
-    echo $backend->doCountSellerss($_SESSION['id']);
 }
 ?>
