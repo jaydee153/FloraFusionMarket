@@ -68,7 +68,9 @@
         <!-- Main Content -->
         <div class="flex-1 p-28 relative">
             <!-- Profile Icon in the top right corner -->
-            <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
+        <button id="profile-menu-button" class="text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"><img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>"
+                                    alt="default" style="height:35px;width:35px;border-radius: 40px;"></i></button>
+            <!-- <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i> -->
 
             <!-- Right Side Content -->
             <div class="flex items-center">
@@ -110,10 +112,11 @@
     </div>
 
 
-        <script src="../assets/chart.js"></script>
+        
         <script src="../assets/services/axios.js"></script>
         <script src="../assets/services/vue.3.js"></script>
         <script src="../assets/services/adminIndex.js"></script>
+        <script src="../assets/chart.js"></script>
 </body>
 
 </html>

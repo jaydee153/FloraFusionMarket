@@ -78,7 +78,9 @@ if (!isset($_SESSION['id'])) {
      
 
         <div class="flex-1 bg-white p-4 shadow-md">
-        <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i>
+        <button id="profile-menu-button" class="text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"><img src="<?php echo isset($_SESSION['image']) ? '../assets/img/' . $_SESSION['image'] : ''; ?>"
+                                    alt="default" style="height:35px;width:35px;border-radius: 40px;"></i></button>
+        <!-- <i class="fas fa-user-circle text-4xl text-green-400 absolute top-0 right-0 mr-4 mt-4"></i> -->
             <h2 class="text-xl font-semibold mb-4 mt-20">Category</h2>
             <div class="flex justify-between items-center mb-4">
                 <div class="relative ml-auto">
