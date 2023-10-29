@@ -1,14 +1,14 @@
 <?php
-//  session_start();  
-// if(!isset($_SESSION['id'])){
-//     header('location: index.php');
-//     $role = $_SESSION['role'];
-//      if($role == 0){
-//       header('location: /FloraFusion/Admin/index.php');
-//     }else{
-//         echo "You Need To Logged in!";
-//     }
-// }
+ session_start();  
+if(!isset($_SESSION['id'])){
+    header('location: index.php');
+    $role = $_SESSION['role'];
+     if($role == 0){
+      header('location: /FloraFusion/Admin/index.php');
+    }else{
+        echo "You Need To Logged in!";
+    }
+}
 ?>
 
 <!DOCTYPE html>
