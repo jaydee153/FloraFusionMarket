@@ -89,10 +89,10 @@
     </div>
   </div>
 
-  <!-- Chart container -->
-  <div class="mt-6">
-    <canvas id="myChart" width="400" height="200"></canvas>
-  </div>
+        <!-- Chart container -->
+        <div class="mt-6">
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
 </div>
 </div>
 </div>
