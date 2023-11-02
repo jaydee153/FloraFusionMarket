@@ -178,7 +178,7 @@ createApp({
             const vue = this;
             var data = new FormData();
             data.append("method","addToCart");
-            data.append("product_ID",product_ID)
+            data.append("product_ID",product_ID);
             axios.post('/florafusionmarket/includes/router.php',data)
             .then(function(r){
                 if(r.data == 200){

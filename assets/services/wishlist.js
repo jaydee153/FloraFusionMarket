@@ -5,8 +5,7 @@ createApp({
             product_name: '',
             product_price: '',
             product_image: '',
-            id : '',
-            w : [],
+            id: 0,
             wishlist: []
         }
     },
@@ -24,6 +23,19 @@ createApp({
                         product_price: v.product_price,
                         product_image : v.product_image
                     })
+                }
+            })
+        },
+        deleteWishlist:function(id){
+            const vue = this;
+            var data = new FormData();
+            data.append("method","deleteWishlist");
+            data.append("id",id);
+            axios.post('../includes/router.php',data)
+            .then(function(r){
+                if(r.data == 200){
+                    vue.dipslayWishlist();
+                    toastr.success('Deleted To Wishlist');
                 }
             })
         }

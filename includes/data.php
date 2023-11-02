@@ -45,7 +45,7 @@ class data{
     }
 
     public function geTAddToCartData(){
-        return "INSERT INTO `my_cart` (customer_id,product_id,quantity) SELECT ?,product_ID,1 FROM `products` where product_ID = ?";
+        return "INSERT INTO `my_cart` (customer_id,product_id,product_price,quantity) SELECT ?,product_ID,product_price,1 FROM `products` where product_ID = ?";
     }
     public function getDisplayCartData(){
         return "SELECT c.cart_id, p.product_name,p.product_price,c.quantity, c.quantity * p.product_price as totalPrice FROM `my_cart` AS c inner join products AS p inner join user_table as u on c.customer_id = u.id and c.product_id = p.product_ID WHERE c.customer_id = ?";
@@ -64,11 +64,15 @@ class data{
     }
     // not functional
     public function getDeleteWishlistData(){
-        return "DELETE FROM wishlist where wishlist_id = ?";
+        return "DELETE FROM `wishlist` WHERE `wishlist_id` = ?";
     }
-    // for order details
+    // not functional
+    public function doCheckOut(){
+        return "INSERT INTO `orders`(`seller_id`, `customer_id`, `product_id`, `order_date`, `total_amount`) SELECT ?,?,product_id,now(),price*quantity FROM `my_cart` WHERE customer_id = ?";
+    }
+    // for order details not functional
     public function displayOrderDetailsData(){
-        return "SELECT o.order_id, o.order_date, u.name, u.email, u.permanent_add, u.contact_no, p.product_name, p.product_qty, p.product_price, o.total_amount as totalPrice FROM `orders` AS o INNER JOIN user_table AS u INNER JOIN products AS p on o.customer_id = u.id AND o.product_id = p.product_ID WHERE o.customer_id = ?";
+        return "SELECT o.order_id, o.order_date, u.name, u.email, u.permanent_add, u.contact_no, p.product_name, m.quantity, p.product_price, p.product_price * m.quantity AS totalPrice FROM orders AS o INNER JOIN user_table AS u INNER JOIN products AS p INNER JOIN my_cart AS m on o.customer_id = u.id AND o.product_id = p.product_ID AND m.product_id = p.product_ID AND m.customer_id = o.customer_id WHERE o.customer_id = ?";
     }
 
     public function getCustomerData(){

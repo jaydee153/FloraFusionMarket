@@ -144,10 +144,14 @@ function deleteWishlist(){
     $backend = new backend();
     echo $backend->doDeleteWishlist($_POST['id']);
 }
-// not functional
-function displayOrder(){
+function checkout(){
     $backend = new backend();
-    echo $backend->doDisplayOrder($_SESSION['id']);
+    echo $backend->doCheckOut($_SESSION['id'],$_POST['product_id']);
+}
+// not functional
+function displayOrderInfo(){
+    $backend = new backend();
+    echo $backend->doDisplayOrderInfo($_SESSION['id']);
 }
 //not display
 function displayCustomerInfo(){

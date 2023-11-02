@@ -21,6 +21,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
     <title>Wishlist</title>
 </head>
 
@@ -71,32 +72,34 @@ if (!isset($_SESSION['id'])) {
                 </div>
             </div>
         </nav>
-        <div id="wishlist">
+    <div id="wishlist">
         <!-- product wishlist -->
-        <div class="p-6">
-            <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-8 p-4">
-                <!-- <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2> -->
-                <!-- Wishlist Product 1 -->
-                <div class="bg-white rounded-lg shadow-md p-4" v-for="w in wishlist">
-                    <img :src="'/florafusion/assets/img/' + w.product_image" alt="Plant Product"
-                        class="mx-auto w-32 h-32 object-cover rounded-md">
-                    <div class="text-center mt-2">
-                        <h3 class="text-lg font-semibold">{{ w.product_name }}</h3>
-                        <p class="text-gray-600">P{{ w.product_price }}</p>
-                    </div>
-                    <div class="flex justify-center mt-4 space-x-4">
-                        <button class="text-red-600 hover:text-gray-500"><i class="fas fa-heart"></i></button>
-                        <button class="text-green-600 hover:text-gray-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto mt-8 p-4">
+                    <!-- <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2> -->
+                    <!-- Wishlist Product 1 -->
+                    <div class="bg-white rounded-lg shadow-md p-4" v-for="w in wishlist">
+                        <img :src="'/florafusion/assets/img/' + w.product_image" alt="Plant Product"
+                            class="mx-auto w-32 h-32 object-cover rounded-md">
+                        <div class="text-center mt-2">
+                            <h3 class="text-lg font-semibold">{{ w.product_name }}</h3>
+                            <p class="text-gray-600">P{{ w.product_price }}</p>
+                        </div>
+                        <div class="flex justify-center mt-4 space-x-4">
+                            <button class="text-red-600 hover:text-gray-500" @click="deleteWishlist(w.id)"><i class="fas fa-heart"></i></button>
+                            <button class="text-green-600 hover:text-gray-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <script src="../assets/drop_down.js"></script>
     <script src="../assets/services/axios.js"></script>
     <script src="../assets/services/vue.3.js"></script>
     <script src="../assets/services/wishlist.js"></script>
+    <script src="../assets/css/jquery.js"></script>
+    <script src="../assets/css/toastr.js"></script>
 
 </body>
 
