@@ -128,7 +128,7 @@ if(!isset($_SESSION['id'])){
                                     {{ cus.permanent_add }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <button class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Delete</button>
+                                    <button @click="deleteCustomer(cus.id)" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Delete</button>
                                 </td>
                             </tr>
                             <!-- Add more rows for other sellers as needed -->

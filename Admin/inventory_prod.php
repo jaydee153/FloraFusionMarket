@@ -101,7 +101,7 @@ if(!isset($_SESSION['id'])){
                 <th class="py-2 px-3 bg-gray-200">Quantity</th>
                 <th class="py-2 px-3 bg-gray-200">Price</th>
                 <th class="py-2 px-3 bg-gray-200">Description</th>
-                <th class="py-2 px-3 bg-gray-200">Actions</th>
+                <!-- <th class="py-2 px-3 bg-gray-200">Actions</th> -->
             </tr>
         </thead>
         <tbody>
@@ -113,14 +113,14 @@ if(!isset($_SESSION['id'])){
                 <td class="py-2 px-3">{{ Aup.qty }}</td>
                 <td class="py-2 px-3">{{ Aup.price }}</td>
                 <td class="py-2 px-3">{{ Aup.desc }}</td>
-                <td class="py-2 px-3">
+                <!-- <td class="py-2 px-3">
                     <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-md ml-2"
                         data-bs-toggle="modal" data-bs-target="#displayprod">Display</button>
                     <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-md ml-2"
                         data-bs-toggle="modal" data-bs-target="#updateprod">Update</button>
                     <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md ml-2"
                         data-bs-toggle="modal" data-bs-target="#deleteprod">Delete</button>
-                </td>
+                </td> -->
             </tr>
         </tbody>
     </table>

@@ -99,9 +99,9 @@ if(!isset($_SESSION['id'])){
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ product.price }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md ml-2"><a href="inventory_prod.php">Update</a></button>
-                            <button @click="deleteProduct(product.product_ID)"
-                                class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md ml-2">Delete</button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md ml-2"><a href="inventory_prod.php">View</a></button>
+                            <!-- <button @click="deleteProduct(product.product_ID)"
+                                class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md ml-2">Delete</button> -->
                         </td>
                     </tr>
 
