@@ -72,9 +72,12 @@ class backend{
     public function doDeleteWishlist($id){
         return $this->deleteWishlist($id);
     }
+    public function doCheckOut($id,$product_id){
+        return $this->getCheckOut($id,$product_id);
+    }
     //not functional display OrderInfo
-    public function doDisplayOrder($id){
-        return $this->getDisplayOrder($id);
+    public function doDisplayOrderInfo($id){
+        return $this->getDisplayOrderInfo($id);
     }
     //not functional
     public function doDisplayCustomerInfo(){
@@ -492,7 +495,30 @@ class backend{
             return $th;
         }
     }
-    private function getDisplayOrder($id){
+    public function getCheckOut($id,$product_id){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->doCheckOut());
+                $query->execute(array($id,$product_id));
+                $result = $query->fetch();
+                $con->closeConnection();
+                if(!$result){
+                    $con->closeConnection();
+                    return 200;
+                }else{
+                    $con->closeConnection();
+                    return 404;
+                }
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+    private function getDisplayOrderInfo($id){
         try {
             $con = new database();
             if($con->getStatus()){
