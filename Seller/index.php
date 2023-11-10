@@ -4,9 +4,9 @@
         header('location: ./index.php');
         $role = $_SESSION['role'];
         if($role == 1){
-            header('location: /FloraFusion/Customer/index.php');
+            header('location: /FloraFusionmarket/Customer/index.php');
         }else if($role == 2){
-            header('location: /FloraFusion/seller/index.php');
+            header('location: /FloraFusionmarket/seller/index.php');
         }else{
             echo "You Need To logged in!";
         }

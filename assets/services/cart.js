@@ -10,14 +10,14 @@ createApp({
             inte: 1,
             c: [],
             carts: [],
-            order_id:0,
-            product_id: 0,
-            date: '',
-            name:'',
-            email:'',
-            permanent_add: '',
-            contact_no: '',
-            orders:[],
+            // order_id:0,
+            // product_id: 0,
+            // date: '',
+            // name:'',
+            // email:'',
+            // permanent_add: '',
+            // contact_no: '',
+            // orders:[],
         }
     },
     methods: {
@@ -74,6 +74,24 @@ createApp({
     //                 // }
     //             })
     //     },
+        // displayCart:function(){
+        //     const vue = this;
+        //     var data = new FormData();
+        //     data.append("method","DisplayCart");
+        //     axios.post('/florafusionmarket/includes/router.php',data)
+        //     .then(function(r){
+        //         vue.carts = [];
+        //         for(var v of r.data){
+        //             vue.carts.push({
+        //                 p_name : v.product_name,
+        //                 p_price : v.product_price,
+        //                 p_quantity : v.quantity,
+        //                 p_totalPrice : v.totalPrice,
+        //                 id : v.cart_id,
+        //             })
+        //         }
+        //     })
+        // },
         displayCart:function(){
             const vue = this;
             var data = new FormData();
@@ -90,8 +108,15 @@ createApp({
                         id : v.cart_id,
                     })
                 }
+                vue.calculateTotalPrice();
             })
         },
+        calculateTotalPrice: function () {
+            const totalCartPrice = this.carts.reduce((total, item) => total + item.p_totalPrice, 0);
+            const t = document.getElementById('f');
+            t.textContent= totalCartPrice;
+          },
+
         deleteCart:function(id){
             const vue = this;
             var data = new FormData();
@@ -117,32 +142,32 @@ createApp({
                 }
             })
         },
-        DisplayOrder:function(){
-            const vue = this;
-            var data = new FormData();
-            data.append("method","displayOrderInfo");
-            axios.post('/florafusionmarket/includes/router.php',data)
-            .then(function (r){
-                vue.orders = [];
-                for(var r of r.data){
-                    vue.orders.push({
-                        order_id : v.order_id,
-                        date: v.order_date,
-                        name:v.name,
-                        email: v.email,
-                        permanent_add: v.permanent_add,
-                        contact_no: v.contact_no,
-                        p_name : v.product_name,
-                        p_quantity: v.quantity,
-                        p_price: v.product_price,
-                        p_totalPrice: v.totalPrice
-                    })
-                }
-            })
-        }
+        // DisplayOrder:function(){
+        //     const vue = this;
+        //     var data = new FormData();
+        //     data.append("method","displayOrderInfo");
+        //     axios.post('/florafusionmarket/includes/router.php',data)
+        //     .then(function (r){
+        //         vue.orders = [];
+        //         for(var r of r.data){
+        //             vue.orders.push({
+        //                 order_id : v.order_id,
+        //                 date: v.order_date,
+        //                 name:v.name,
+        //                 email: v.email,
+        //                 permanent_add: v.permanent_add,
+        //                 contact_no: v.contact_no,
+        //                 p_name : v.product_name,
+        //                 p_quantity: v.quantity,
+        //                 p_price: v.product_price,
+        //                 p_totalPrice: v.totalPrice
+        //             })
+        //         }
+        //     })
+        // }
     },
     created:function(){
         this.displayCart();
-        this.DisplayOrder();
+        // this.DisplayOrder();
     }
 }).mount('#cart')

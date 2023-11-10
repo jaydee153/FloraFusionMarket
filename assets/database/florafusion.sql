@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2023 at 03:50 PM
+-- Generation Time: Nov 09, 2023 at 07:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,6 +44,7 @@ CREATE TABLE `my_cart` (
   `cart_id` int(11) NOT NULL,
   `customer_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
+  `product_price` int(11) NOT NULL,
   `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -51,15 +52,11 @@ CREATE TABLE `my_cart` (
 -- Dumping data for table `my_cart`
 --
 
-INSERT INTO `my_cart` (`cart_id`, `customer_id`, `product_id`, `quantity`) VALUES
-(16, 2, 7, 7),
-(34, 1, 7, 3),
-(36, 1, 7, 2),
-(37, 1, 32, 1),
-(39, 1, 31, 1),
-(40, 1, 7, 1),
-(41, 1, 39, 1),
-(42, 1, 30, 1);
+INSERT INTO `my_cart` (`cart_id`, `customer_id`, `product_id`, `product_price`, `quantity`) VALUES
+(16, 2, 7, 200, 7),
+(43, 1, 41, 15, 1),
+(44, 1, 40, 15, 1),
+(50, 1, 7, 200, 1);
 
 -- --------------------------------------------------------
 
@@ -71,9 +68,22 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `seller_id` int(11) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
-  `order_date` datetime DEFAULT NULL,
-  `total_amount` decimal(10,2) DEFAULT NULL
+  `product_id` int(11) NOT NULL,
+  `total_amount` decimal(10,2) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `order_date` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `seller_id`, `customer_id`, `product_id`, `total_amount`, `status`, `order_date`) VALUES
+(1, 3, 2, 7, '1400.00', 1, '2023-10-29 14:15:35'),
+(2, 3, 1, 41, '15.00', 0, '2023-10-29 14:18:49'),
+(3, 3, 1, 40, '15.00', 0, '2023-10-29 14:18:49'),
+(28, 3, 1, 7, '200.00', 0, '2023-11-05 14:53:50'),
+(29, 3, 1, 30, '500.00', 0, '2023-11-05 14:53:50');
 
 -- --------------------------------------------------------
 
@@ -102,18 +112,10 @@ INSERT INTO `products` (`product_ID`, `userID`, `product_image`, `product_name`,
 (30, 13, 'sunrose.jpg', 'Sun Rose Plant', 250, 500, 'Sun Rose Plant', '2023-10-09 11:52:16'),
 (31, 13, 'pink.jpg', 'Pink Cactus', 500, 500, 'Pink Cactus', '2023-10-09 11:52:29'),
 (32, 13, 'cactus.jpg', 'sakit', 200, 400, 'sakit na cactus', '2023-10-09 11:52:35'),
-(33, 3, 'defaultProfilePicture.jpg', 'default', 12345678, 123456, 'default', '2023-10-09 11:00:30'),
-(34, 3, 'capstone.png', 'Jeffrey', 123, 1231, 'qwetyuo', '2023-10-09 11:00:30'),
-(35, 3, 'bleulock.jpg', '123', 123, 123, '123', '2023-10-09 11:52:44'),
 (36, 13, 'bleulock.jpg', '123', 123, 123, '123123', '2023-10-09 11:52:49'),
-(37, 3, 'capstone.png', '123', 123, 123, '32131', '2023-10-09 11:52:54'),
-(38, 3, 'imgcapstone.png', '1231123', 123123, 12312, '12312', '2023-10-09 11:52:56'),
-(39, 3, 'bleulock.jpg', 'qweqw', 12312, 123, '123123aeqw', '2023-10-09 11:38:12'),
-(40, 3, 'pink.jpg', 'pitik cactus', 150, 15, 'pitik cactus', '2023-10-19 11:40:07'),
-(41, 3, 'cactus.jpg', 'cactus', 300, 15, 'cactus is a blah blah', '2023-10-19 13:43:09'),
-(42, 3, 'pink.jpg', 'sunflower', 250, 15, 'sunflower', '2023-10-19 13:44:02'),
-(43, 3, 'sunrose.jpg', 'Succulent', 300, 10, 'sunrose', '2023-10-19 13:47:25'),
-(44, 3, 'sunrose.jpg', 'sunrose', 400, 10, 'sunrose', '2023-10-19 13:48:35');
+(40, 3, 'pink.jpg', 'pitik cactus', 15, 150, 'pitik cactus', '2023-11-02 07:42:06'),
+(41, 3, 'cactus.jpg', 'cactus', 15, 300, 'cactus is a blah blah', '2023-11-02 07:41:30'),
+(50, 3, 'FloraFusion.jpg', 'Sunflower', 20, 240, 'sunflower', '2023-11-09 04:18:34');
 
 -- --------------------------------------------------------
 
@@ -125,6 +127,12 @@ CREATE TABLE `purchases` (
   `purchase_id` int(11) NOT NULL,
   `customer_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
+  `purchase_name` varchar(225) NOT NULL,
+  `description` varchar(225) NOT NULL,
+  `payment_method` varchar(225) NOT NULL,
+  `checkout_url` varchar(225) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   `purchase_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -154,19 +162,6 @@ CREATE TABLE `sales_graph` (
   `seller_id` int(11) DEFAULT NULL,
   `month` int(11) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
-  `total_sales` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sales_report`
---
-
-CREATE TABLE `sales_report` (
-  `report_id` int(11) NOT NULL,
-  `seller_id` int(11) DEFAULT NULL,
-  `report_date` date DEFAULT NULL,
   `total_sales` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -234,7 +229,8 @@ INSERT INTO `user_table` (`id`, `name`, `email`, `password`, `role`, `status`, `
 (12, 'xx', 'xxx@gmail.com', 'f561aaf6ef0bf14d4208bb46a4ccb3ad', 2, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '0000-00-00', '2023-10-05 10:16:10'),
 (13, 'jepoy', 'jepoy@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 2, 1, 'imgcapstone.png', 'mahayahay bankal lapu-lapu city', 'mahayahay bankal lapu-lapu city', '09554593878', 1, '1995-10-10', '2023-10-07 08:00:46'),
 (14, 'jason', 'jason@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 'defaultProfilePicture.jpg', '', '', '', 0, '0000-00-00', '2023-10-07 08:31:48'),
-(15, 'jason', 'dee@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, '', '', '', '', 0, '0000-00-00', '2023-10-12 13:47:51');
+(15, 'jason', 'dee@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, '', '', '', '', 0, '0000-00-00', '2023-10-12 13:47:51'),
+(16, 'jeffrey', 'jeffreyigot08@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 'myphoto.jpg', 'mahayahay bankal lapu lapu city', 'mahayahay bankal lapu lapu city', '09554593878', 1, '1995-11-10', '2023-10-30 15:48:33');
 
 -- --------------------------------------------------------
 
@@ -253,16 +249,9 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `product_id`) VALUES
-(1, 2, 31),
-(2, 1, 29),
-(3, 1, 31),
-(4, 1, 31),
-(5, 1, 30),
-(6, 1, 29),
-(7, 1, 31),
-(8, 1, 31),
-(9, 1, 31),
-(10, 1, 31);
+(30, 1, 7),
+(31, 1, 40),
+(32, 1, 41);
 
 --
 -- Indexes for dumped tables
@@ -322,13 +311,6 @@ ALTER TABLE `sales_graph`
   ADD KEY `seller_id` (`seller_id`);
 
 --
--- Indexes for table `sales_report`
---
-ALTER TABLE `sales_report`
-  ADD PRIMARY KEY (`report_id`),
-  ADD KEY `seller_id` (`seller_id`);
-
---
 -- Indexes for table `sold_history`
 --
 ALTER TABLE `sold_history`
@@ -371,19 +353,19 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `my_cart`
 --
 ALTER TABLE `my_cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `purchases`
@@ -404,12 +386,6 @@ ALTER TABLE `sales_graph`
   MODIFY `graph_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sales_report`
---
-ALTER TABLE `sales_report`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `sold_history`
 --
 ALTER TABLE `sold_history`
@@ -425,13 +401,13 @@ ALTER TABLE `tracker`
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

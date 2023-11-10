@@ -163,4 +163,98 @@ function displaySellerInfo(){
     $backend = new backend();
     echo $backend->doDisplaySellerInfo();
 }
+
+// orders.php
+function displayAllOrders(){
+    $backend = new backend();
+    echo $backend->doDisplayOrdersSellers($_SESSION['id']);
+}
+
+// delete order.php 
+function deletesellersOrders(){
+    $backend = new backend();
+    echo $backend->doDeleteOrdersSeller($_POST['id']);
+}
+
+// view order.php 
+function viewsellersOrders(){
+    $backend = new backend();
+    echo $backend->doViewOrdersSeller($_POST['id']);
+}
+
+//order.php updatestatus
+function updatestatusOrders(){
+    $backend = new backend();
+    echo $backend->doUpdateStatus($_POST['id']);
+}
+
+// index.php display all products
+function displayallprod(){
+    $backend = new backend();
+    echo $backend->doDisplayAllP();
+}
+
+//index.php individual
+function displayIndip(){
+    $backend = new backend();
+    echo $backend->doDisplayEdiP($_POST['id']);
+}
+
+//sellers_report
+function displaySellReport(){
+    $backend = new backend();
+    echo $backend->doDisplaySellersRe($_SESSION['id']);
+}
+
+function displayViewReport(){
+    $backend = new backend ();
+    echo $backend->doViewSeller($_POST['id']);
+}
+
+function displayTotalAmount(){
+    $backend = new backend();
+    echo $backend->doTotalAmount($_POST['id']);
+}
+
+function addSellprod(){
+    $backend = new backend();
+    $location = "../assets/img/";
+    $filename = '';
+    if (isset($_FILES['file']['name'])) {
+
+        $finalfile = $location . $_FILES["file"]['name'];
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $finalfile)) {
+            $filename = $_FILES["file"]['name'];
+        }
+
+    }
+    echo $backend->doSelleraddprod($_SESSION['id'],$filename,$_POST['pname'],$_POST['pquantity'],$_POST['pprice'],$_POST['desc']);
+}
+
+function displayAllinve(){
+    $backend = new backend();
+    echo $backend->doDisplayAllInve($_SESSION['id']);
+}
+
+function displayUPAllinve(){
+    $backend = new backend();
+    echo $backend->doDisplaydAllInve($_POST['id']);
+}
+
+function updateinve(){
+    $backend = new backend();
+    $location = "../assets/img/";
+    $filename = "";
+    if (isset($_FILES['fileToUpload']['name'])) {
+        $filename = $location . $_FILES["fileToUpload"]['name'];
+        if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $filename)) {
+            $filename = $_FILES["fileToUpload"]['name'];
+        }
+    }
+    echo $backend->doUpdateInven($filename,$_POST['pname'],$_POST['pquantity'],$_POST['pprice'],$_POST['desc'],$_POST['id']);
+}
+function deleteIn(){
+    $backend = new backend();
+    echo $backend->doDeleteInve($_POST['id']);
+}
 ?>

@@ -24,17 +24,16 @@
     </div>
 
     <script>
-        const codQRCodeContainer = document.getElementById('codQRCode');
+        const gcashQRCodeContainer = document.getElementById('gcashQRCode');
 
-        
-        const qrCodeData = 'COD Payment Instructions: Please prepare the exact amount in cash.';
+        const qrCodeData = '00020101021126580014PH.QRPH.ORG0113Flora Fusion520441155802PH5913Flora Fusion6015Makati City6304B7C7';
 
-       
-        const qrcode = new QRCode(codQRCodeContainer, {
-            text: qrCodeData,
-            width: 128,
-            height: 128
-        });
+        // Create QR code image
+        const qrCodeImage = new Image();
+        qrCodeImage.src = '377236032_6742738852473502_9124539127692614252_n.jpg';
+
+        // Replace QR code div with image tag
+        gcashQRCodeContainer.parentNode.replaceChild(qrCodeImage, gcashQRCodeContainer);
     </script>
 </body>
 </html>

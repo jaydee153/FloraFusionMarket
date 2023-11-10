@@ -70,15 +70,15 @@ class backend{
     }
     //not functional delete from wishlist
     public function doDeleteWishlist($id){
-        return $this->deleteWishlist($id);
+        return $this->getDeleteWishlist($id);
     }
     public function doCheckOut($id,$product_id){
         return $this->getCheckOut($id,$product_id);
     }
     //not functional display OrderInfo
-    public function doDisplayOrderInfo($id){
-        return $this->getDisplayOrderInfo($id);
-    }
+    // public function doDisplayOrderInfo($id){
+    //     return $this->getDisplayOrderInfo($id);
+    // }
     //not functional
     public function doDisplayCustomerInfo(){
         return $this->getDisplayCustomerInfo();
@@ -86,6 +86,74 @@ class backend{
     //not functional
     public function doDisplaySellerInfo(){
         return $this->getDisplaySellerInfo();
+    }
+
+    //orders.php
+    public function doDisplayOrdersSellers($id){
+        return $this->getDisplaySellerorders($id);
+    }
+
+    // orders.php delete
+    public function doDeleteOrdersSeller($id){
+        return $this->getDeleteOrdersSeller($id);
+    }
+    // order.php view
+    public function doViewOrdersSeller($id){
+        return $this->getDisplayVieworders($id);
+    }
+
+    //order.php updatestatus
+    public function doUpdateStatus($id){
+        return $this->getUpdateStatus($id);
+    }
+
+     // index.php display all products
+     public function doDisplayAllP(){
+        return $this->getDisplayAllProd();
+    }
+
+    // index individual prod
+    public function doDisplayEdiP($id){
+        return $this->getDisplayEdiProd($id);
+    }
+
+    //sellers_report 
+    public function doDisplaySellersRe($id){
+        return $this->getSelleresReport($id);
+    }
+
+    public function doViewSeller($id){
+        return $this->getViewSelleres($id);
+    }
+
+    //TOTAL AMOUNT
+    public function doTotalAmount($id){
+        return $this->getTotalSellere($id);
+    }
+
+    //ADD PRODUCT INVENTORY
+    public function doSelleraddprod($userID,$product_image, $product_name, $product_qty, $product_price, $product_des){
+        return $this->selleraddprod($userID,$product_image, $product_name, $product_qty, $product_price, $product_des);
+    }
+
+    //DISPLAY INVENTORY SELLER
+    public function doDisplayAllInve($id){
+        return $this->getAllInventory($id);
+    }
+
+    //ADD PRODUCT INVENTORY
+    public function doUpdateInven($product_image, $product_name, $product_qty, $product_price,$product_des,$id){
+        return $this->getUpdateInventory($product_image, $product_name, $product_qty, $product_price, $product_des,$id);
+    }
+
+
+
+    public function doDisplaydAllInve($id){
+        return $this->getdUpdateInventory($id);
+    }
+
+    public function doDeleteInve($id){
+        return $this->getDeleteInventory($id);
     }
 
 
@@ -474,7 +542,7 @@ class backend{
     }
 
     //not functional
-    private function deleteWishlist($id){
+    private function getDeleteWishlist($id){
         try {
             $con = new database();
             if($con->getStatus()){
@@ -518,23 +586,23 @@ class backend{
             return $th;
         }
     }
-    private function getDisplayOrderInfo($id){
-        try {
-            $con = new database();
-            if($con->getStatus()){
-                $DT = new data();
-                $query = $con->getCon()->prepare($DT->displayOrderDetailsData());
-                $query->execute(array($id));
-                $result = $query->fetchall();
-                $con->closeConnection();
-                return json_encode($result);
-            }else{
-                return "NotConnectedToDatabase";
-            }
-        } catch (PDOException $th) {
-            return $th;
-        }
-    }
+    // private function getDisplayOrderInfo($id){
+    //     try {
+    //         $con = new database();
+    //         if($con->getStatus()){
+    //             $DT = new data();
+    //             $query = $con->getCon()->prepare($DT->displayOrderDetailsData());
+    //             $query->execute(array($id));
+    //             $result = $query->fetchall();
+    //             $con->closeConnection();
+    //             return json_encode($result);
+    //         }else{
+    //             return "NotConnectedToDatabase";
+    //         }
+    //     } catch (PDOException $th) {
+    //         return $th;
+    //     }
+    // }
 
     private function getDisplayCustomerInfo(){
         try{
@@ -563,6 +631,285 @@ class backend{
                 $result = $query->fetchAll();
                 $con->closeConnection();
                 return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+     // orders.php
+     private function getDisplaySellerorders($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayOrdersseller());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+    //orders.php delete
+    private function getDeleteOrdersSeller($id){
+        try {
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayOrderDelete());
+                $query->execute(array($id));
+                $result = $query->fetch();
+                $con->closeConnection();
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        } catch (PDOException $th) {
+            return $th;
+        }
+    }
+
+    //order.php viewdetails
+    private function getDisplayVieworders($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayOrderView());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    //order.php updatestatus
+    private function getUpdateStatus($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->deliveredItem());
+                $query->execute(array($id));
+                $result = $query->fetch();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    // index.php getallproducts
+    private function getDisplayAllProd(){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayallprod());
+                $query->execute();
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    // index.php getIndividual prod
+    private function getDisplayEdiProd($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayediprod());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    //sellers_report
+    private function getSelleresReport($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displaySelleresReport());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    private function getViewSelleres($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayMonthSellers());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    private function getTotalSellere($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displaytotalamount());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    //INVENTORY ADD PROD
+    private function selleraddprod($userID,$product_image, $product_name, $product_qty, $product_price, $product_des){
+        try {
+            $con = new database();
+            if ($con->getStatus()) {
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->doAddinventory());
+                $query->execute(array($userID,$product_image, $product_name, $product_qty, $product_price, $product_des));
+                
+                $result = $query->fetchAll();
+                if (!$result) {
+                    $con->closeConnection();
+                    return "Successfully";
+                } else {
+                    $con->closeConnection();
+                    return "Try Again";
+                }
+            } else {
+                $con->closeConnection();
+                return "ERROR 404";
+            }
+        } catch(PDOException $th) {
+            return $th;
+        }
+    }
+
+    //inventory get seller prod
+    private function getAllInventory($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayInventory());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+
+    //INVENTORY UPDATE  updateinventory
+    private function getUpdateInventory($product_image, $product_name, $product_qty, $product_price,$product_des,$id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->updateinventory());
+                $query->execute(array($product_image, $product_name, $product_qty, $product_price,$product_des,$id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    //inventory get update info prod
+    private function getdUpdateInventory($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->displayUpdateINfo());
+                $query->execute(array($id));
+                $result = $query->fetchAll();
+                $con->closeConnection();    
+                return json_encode($result);
+                
+            }else{
+                return "NotConnectedToDatabase";
+            }
+        }catch(PDOException $th){
+            return $th;
+        }
+    }
+
+    //inventory get delete 
+    private function getDeleteInventory($id){
+        try{
+            $con = new database();
+            if($con->getStatus()){
+                $DT = new data();
+                $query = $con->getCon()->prepare($DT->deleteInve());
+                $query->execute(array($id));
+                $result = $query->fetch();
+                $con->closeConnection();    
+                return json_encode($result);
+                
             }else{
                 return "NotConnectedToDatabase";
             }

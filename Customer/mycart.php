@@ -4,9 +4,9 @@ if (!isset($_SESSION['id'])) {
     header('location: ./index.php');
     $role = $_SESSION['role'];
     if ($role == 1) {
-        header('location: /FloraFusion/Customer/index.php');
+        header('location: /FloraFusionmarket/Customer/index.php');
     } else if ($role == 2) {
-        header('location: /FloraFusion/seller/index.php');
+        header('location: /FloraFusionmarket/seller/index.php');
     } else {
         echo "You Need To logged in!";
     }
@@ -125,10 +125,21 @@ if (!isset($_SESSION['id'])) {
             </table>
 
             <!-- Cart Total -->
-            <div class="mt-4 flex flex-col items-end">
+            <!-- <div class="mt-4 flex flex-col items-end">
                 <div class="text-xl font-semibold mb-2">
                     Total Amout:
                     <span class="ml-2">{{ c.p_totalPrice }}</span>
+                </div>
+                <button id="order-details-button" @click="checkOut(product_id)"
+                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
+                    Checkout
+                </button>
+            </div> -->
+            <!-- Cart Total -->
+            <div class="mt-4 flex flex-col items-end">
+                <div class="text-xl font-semibold mb-2">
+                    Total Amout:
+                    <span class="ml-2" id="f">{{ c.p_price }}</span>
                 </div>
                 <button id="order-details-button" @click="checkOut(product_id)"
                     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">

@@ -4,9 +4,9 @@ if (!isset($_SESSION['id'])) {
     header('location: ./index.php');
     $role = $_SESSION['role'];
     if ($role == 1) {
-        header('location: /FloraFusion/Customer/index.php');
+        header('location: /FloraFusionmarket/Customer/index.php');
     } else if ($role == 2) {
-        header('location: /FloraFusion/seller/index.php');
+        header('location: /FloraFusionmarket/seller/index.php');
     } else {
         echo "You Need To logged in!";
     }
@@ -90,8 +90,8 @@ if (!isset($_SESSION['id'])) {
 
                     <h2 class="text-xl font-semibold ">Ornamental</h2>
                     <div class="relative ml-auto">
-                        <button class="bg-green-500 hoverbg-green-600 text-white px-4 py-2 rounded-md mr-3"
-                            data-bs-toggle="modal" data-bs-target="#addprod">+</button>
+                        <!-- <button class="bg-green-500 hoverbg-green-600 text-white px-4 py-2 rounded-md mr-3"
+                            data-bs-toggle="modal" data-bs-target="#addprod">+</button> -->
                         <input type="search" v-model="search"
                             class="border border-gray-300 rounded-md px-3 py-2 pr-10 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-500"
                             placeholder="Search">
@@ -110,7 +110,7 @@ if (!isset($_SESSION['id'])) {
                             <th class="py-2 px-3 bg-gray-200">Quantity</th>
                             <th class="py-2 px-3 bg-gray-200">Price</th>
                             <th class="py-2 px-3 bg-gray-200">Description</th>
-                            <th class="py-2 px-3 bg-gray-200">Actions</th>
+                            <!-- <th class="py-2 px-3 bg-gray-200">Actions</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -123,13 +123,13 @@ if (!isset($_SESSION['id'])) {
                             <td class="py-2 px-3">{{ up.qty }}</td>
                             <td class="py-2 px-3">{{ up.price }}</td>
                             <td class="py-2 px-3">{{ up.desc }}</td>
-                            <td class="py-2 px-3">
+                            <!-- <td class="py-2 px-3">
                                 <button @click="GETselectedId(up.id)"
                                     class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-md ml-2"
                                     data-bs-toggle="modal" data-bs-target="#updateprod">Update</button>
                                 <button @click="deleteProduct(up.id)"
                                  class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md ml-2">Delete</button>
-                            </td>
+                            </td> -->
                         </tr>
                     </tbody>
                 </table>

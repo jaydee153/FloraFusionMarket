@@ -4,9 +4,9 @@ if (!isset($_SESSION['id'])) {
     header('location: ./index.php');
     $role = $_SESSION['role'];
     if ($role == 1) {
-        header('location: /FloraFusion/Customer/index.php');
+        header('location: /FloraFusionmarket/Customer/index.php');
     } else if ($role == 2) {
-        header('location: /FloraFusion/seller/index.php');
+        header('location: /FloraFusionmarket/seller/index.php');
     } else {
         echo "You Need To logged in!";
     }
@@ -80,14 +80,14 @@ if (!isset($_SESSION['id'])) {
                     <!-- <h2 class="text-2xl font-semibold mb-4 text-center">My Wishlist</h2> -->
                     <!-- Wishlist Product 1 -->
                     <div class="bg-white rounded-lg shadow-md p-4" v-for="w in wishlist">
-                        <img :src="'/florafusion/assets/img/' + w.product_image" alt="Plant Product"
+                        <img :src="'/florafusionmarket/assets/img/' + w.product_image" alt="Plant Product"
                             class="mx-auto w-32 h-32 object-cover rounded-md">
                         <div class="text-center mt-2">
                             <h3 class="text-lg font-semibold">{{ w.product_name }}</h3>
                             <p class="text-gray-600">P{{ w.product_price }}</p>
                         </div>
                         <div class="flex justify-center mt-4 space-x-4">
-                            <button class="text-red-600 hover:text-gray-500" @click="deleteWishlist(w.id)"><i class="fas fa-heart"></i></button>
+                            <button @click="deleteWishlist(w.id)" class="text-red-600 hover:text-gray-500"><i class="fas fa-heart"></i></button>
                             <button class="text-green-600 hover:text-gray-500"><a href="mycart.php"><i class="fas fa-cart-plus"></i></a></button>
                         </div>
                     </div>

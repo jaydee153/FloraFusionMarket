@@ -1,16 +1,16 @@
 <?php 
-     session_start();  
-    if(!isset($_SESSION['id'])){
-        header('location: ./index.php');
-        $role = $_SESSION['role'];
-        if($role == 1){
-            header('location: /FloraFusion/Customer/index.php');
-        }else if($role == 2){
-            header('location: /FloraFusion/seller/index.php');
-        }else{
-            echo "You Need To logged in!";
-        }
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('location: ./index.php');
+    $role = $_SESSION['role'];
+    if ($role == 1) {
+        header('location: /FloraFusionmarket/Customer/index.php');
+    } else if ($role == 2) {
+        header('location: /FloraFusionmarket/seller/index.php');
+    } else {
+        echo "You Need To logged in!";
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +146,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <div class="p-2 w-64 m-2" v-for="product in productsFromIndex" :key="product.product_ID">
             <div class="bg-white rounded-lg shadow-md relative">
-              <img @click="fnGetDataProducts(product.product_ID)" data-bs-toggle="modal" data-bs-target="#View" :src="'/florafusion/assets/img/' + product.image" alt="plant" class="w-full h-36 object-cover cursor-pointer">
+              <img @click="fnGetDataProducts(product.product_ID)" data-bs-toggle="modal" data-bs-target="#View" :src="'/florafusionmarket/assets/img/' + product.image" alt="plant" class="w-full h-36 object-cover cursor-pointer">
               <div class="p-3 text-center">
                 <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
                 <p class="text-gray-600">{{ product.des }}</p>

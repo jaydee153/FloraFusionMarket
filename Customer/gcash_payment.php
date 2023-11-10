@@ -13,6 +13,7 @@
         <h1 class="text-2xl font-semibold mb-4">GCash Payment</h1>
         <div id="gcashQRCode" class="mt-4"></div>
         
+        
        <div class="mt-4">
             <a href="tracker.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
                 Proceed
@@ -23,8 +24,9 @@
     <script>
         const gcashQRCodeContainer = document.getElementById('gcashQRCode');
 
-        const qrCodeData = 'gcash://sendTo=YOUR_PHONE_NUMBER&amount=AMOUNT';
-
+        const qrCodeData = 'gcash://sendTo=09554593878&amount=1';
+        
+        
         const qrcode = new QRCode(gcashQRCodeContainer, {
             text: qrCodeData,
             width: 128,

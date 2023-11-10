@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/sweetalert.css">
+    <link rel="stylesheet" href="./assets/css/sweetalert.css">
     <link rel="stylesheet" href="../FloraFusionMarket/assets/css/tailwind.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Home</title>
 </head>
 <style>
-    /* Modal styles */
+    / Modal styles /
     .modal {
         display: none;
         position: fixed;
@@ -34,7 +34,7 @@
         align-items: center;
     }
 
-    /* Close button */
+    / Close button /
     .close {
         position: absolute;
         top: 10px;
@@ -42,7 +42,7 @@
         cursor: pointer;
     }
 
-    /* Table-like layout */
+    / Table-like layout /
     .table {
         display: table;
         width: 100%;
@@ -112,35 +112,8 @@
 <!-- section 2 -->
 
 <div id="product">
-  <section id="section2" class="bg-white py-8 bg-cover bg-center h-screen flex items-center justify-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4 text-center">Featured Products</h2>
-      <div class="max-w-5xl mx-auto p-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <div class="p-2 w-64 m-2" v-for="product in products" :key="product.product_ID">
-            <div class="bg-white rounded-lg shadow-md relative">
-              <img @click="fnGetDataProducts(product.product_ID)" data-bs-toggle="modal" data-bs-target="#View" :src="'/florafusion/assets/img/' + product.image" alt="plant" class="w-full h-36 object-cover cursor-pointer">
-              <div class="p-3 text-center">
-                <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
-                <p class="text-gray-600">{{ product.des }}</p>
-                <div class="mt-2">
-                  <span class="text-blue-500 font-semibold">{{ product.price }}</span>
-                  <span class="text-gray-500 ml-2 line-through">{{ product.oldPrice }}</span>
-                </div>
-                <div class="mt-3 flex justify-center">
-                  <button class="text-red-500 hover:text-gray-500">
-                    <i class="fas fa-heart"></i>
-                  </button>
-                <button class="text-green-600 hover:text-gray-500 ml-2" @click="addToCart(product.product_ID)">
-                    <i class="fas fa-cart-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section id="section2" class="bg-white py-8 bg-cover bg-center h-screen flex items-center d-flex justify-center">
+  <h2 class="text-3xl font-bold text-center mb-4">Featured Products</h2>
   </section>
 
   <!-- Modal for Update Plant -->
@@ -151,14 +124,14 @@
           <h5 class="modal-title text-2xl font-semibold mb-4">View</h5>
         </div>
         <form>
-        <img :src="image" alt="Plant Product" class="cursor-pointer" style="width:500px; height:300px; object-fit: cover;">
+        <img :src="image" alt="Plant Product" id="image" class="cursor-pointer" style="width:500px; height:300px; object-fit: cover;">
           <div class="table">
             <div class="table-row">
               <div class="table-cell">
-                <h2 class="text-2xl font-semibold" name="name" id="name">{{ name }}</h2>
+                <h2 class="text-2xl font-semibold" name="name" id="indi-name"></h2>
               </div>
               <div class="table-cell">
-                <p class="text-lg font-bold text-green-500" name="price" id="price">{{ price }}</p>
+                <p class="text-lg font-bold text-green-500" name="price" id="indi-price"></p>
               </div>
               <div class="table-cell">
                 <button class="bg-red-500 text-white px-4 py-2 rounded-full" name="wishlist" id="wishlist">Add to Wishlist</button>
@@ -168,7 +141,7 @@
               </div>
             </div>
           </div>
-          <p class="my-4" name="desc" id="desc">Description: <br> {{ desc }}</p>
+          <p class="my-4" name="desc">Description: <p class="display:flex;"id="indi-desc"></p><br> </p>
           <h3 class="text-xl font-semibold my-2" name="review" id="review">Reviews:</h3>
           <!-- You can display user reviews here -->
           <div class="border-t border-gray-300">
@@ -209,17 +182,15 @@
 
 
 
-<script src="../assets/css/sweetalert.js"></script>
+<script src="./assets/css/sweetalert.js"></script>
 <script src="assets/css/bootstrap.js"></script>
   <script src="assets/productsmodal.js"></script>
     <script src="assets/drop_down.js"></script>
     <script src="assets/services/axios.js"></script>
     <script src="assets/services/vue.3.js"></script>
-    <script src="assets/services/product.js"></script>
+    <!-- <script src="assets/services/product.js"></script> -->
+    <script src="assets/services/indexproduct.js"></script>
 <script src="assets/loginModal.js"></script>
 
 </body>
 </html>
-
-
-
