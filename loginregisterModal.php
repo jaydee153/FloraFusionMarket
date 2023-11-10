@@ -42,7 +42,7 @@
                 <div class="w-1/2 pr-4"> <!-- Right Side -->
                     <div class="mb-4">
                         <label for="account-type" class="block text-sm font-medium text-gray-600">Account Type</label>
-                        <select id="account-type" name="role" class="mt-1 p-2 w-full border rounded">
+                        <select id="account-type" name="role" class="mt-1 p-2 w-full border rounded" onchange="toggleGcashField()">
                             <option value="1">Become A Customer</option>
                             <option value="2">Become A Seller</option>
                         </select>
@@ -53,6 +53,15 @@
                         </label>
                         <input type="file" id="file" name="image" required>
                     </div>
+
+                    <div class="mb-4" id="gcashImageField" style="display: none;">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="gcashImage">
+        GCash Image
+    </label>
+    <input type="file" id="gcashImage" name="gcashImage" accept="image/*" required>
+</div>
+
+
                     <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-600">Name</label>
                     <input type="text" id="username" name="username" class="mt-1 p-2 w-full border rounded" required>
