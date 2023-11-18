@@ -10,6 +10,7 @@ createApp({
             inte: 1,
             c: [],
             carts: [],
+            cart_id: 0,
             // order_id:0,
             // product_id: 0,
             // date: '',
@@ -130,15 +131,17 @@ createApp({
                 }
             })
         },
-        checkOut:function(product_id){
+        checkOut:function(id){
             const vue = this;
             var data = new FormData();
             data.append("method","checkOut");
-            data.append("product_id",product_id);
+            data.append("id",id);
             axios.post('../includes/router.php',data)
             .then(function(r){
                 if(r.data == 200){
                     toastr.success('CheckOut');
+                }else{
+                    toastr.error('fail to checkout');
                 }
             })
         },

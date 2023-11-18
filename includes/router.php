@@ -144,9 +144,9 @@ function deleteWishlist(){
     $backend = new backend();
     echo $backend->doDeleteWishlist($_POST['id']);
 }
-function checkout(){
+function checkOut(){
     $backend = new backend();
-    echo $backend->doCheckOut($_SESSION['id'],$_POST['product_id']);
+    echo $backend->doCheckOut($_SESSION['id'],$_POST['id']);
 }
 // not functional
 function displayOrderInfo(){
@@ -257,4 +257,11 @@ function deleteIn(){
     $backend = new backend();
     echo $backend->doDeleteInve($_POST['id']);
 }
+
+//seller chart
+function doDSchart(){
+    $backend = new backend();
+    echo $backend->doDisplaySchart($_SESSION['id']);
+}
+
 ?>

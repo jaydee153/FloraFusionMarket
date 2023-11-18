@@ -147,7 +147,7 @@ if (!isset($_SESSION['id'])) {
       <h2 class="text-3xl font-bold mb-4 text-center">Featured Products</h2>
       <div class="max-w-5xl mx-auto p-1">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <div class="p-2 w-64 m-2" v-for="product in productsFromIndex" :key="product.product_ID">
+          <div class="p-2 w-64 m-2" v-for="product in searchData" :key="product.product_ID">
             <div class="bg-white rounded-lg shadow-md relative">
               <img @click="fnGetDataProducts(product.product_ID)" data-bs-toggle="modal" data-bs-target="#View" :src="'/florafusionmarket/assets/img/' + product.image" alt="plant" class="w-full h-36 object-cover cursor-pointer">
               <div class="p-3 text-center">

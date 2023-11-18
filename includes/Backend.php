@@ -72,8 +72,8 @@ class backend{
     public function doDeleteWishlist($id){
         return $this->getDeleteWishlist($id);
     }
-    public function doCheckOut($id,$product_id){
-        return $this->getCheckOut($id,$product_id);
+    public function doCheckOut($id,$cart_id){
+        return $this->getCheckOut($id,$cart_id);
     }
     //not functional display OrderInfo
     // public function doDisplayOrderInfo($id){
@@ -154,6 +154,11 @@ class backend{
 
     public function doDeleteInve($id){
         return $this->getDeleteInventory($id);
+    }
+
+    //chart seller 
+    public function doDisplaySchart($id){
+        return $this->getchartseller($id);
     }
 
 
@@ -563,13 +568,13 @@ class backend{
             return $th;
         }
     }
-    public function getCheckOut($id,$product_id){
+    public function getCheckOut($id,$cart_id){
         try {
             $con = new database();
             if($con->getStatus()){
                 $DT = new data();
                 $query = $con->getCon()->prepare($DT->doCheckOut());
-                $query->execute(array($id,$product_id));
+                $query->execute(array($id,$cart_id));
                 $result = $query->fetch();
                 $con->closeConnection();
                 if(!$result){
@@ -917,5 +922,26 @@ class backend{
             return $th;
         }
     }
+
+    //seller chart 
+private function getchartseller($id){
+    try{
+        $con = new database();
+        if($con->getStatus()){
+            $DT = new data();
+            $query = $con->getCon()->prepare($DT->dchart());
+            $query->execute(array($id));
+            $result = $query->fetchAll();
+            $con->closeConnection();    
+            return json_encode($result);
+            
+        }else{
+            return "NotConnectedToDatabase";
+        }
+    }catch(PDOException $th){
+        return $th;
+    }
+}
+
 }
 ?> 

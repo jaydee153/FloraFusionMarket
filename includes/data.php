@@ -68,15 +68,15 @@ class data{
     }
     // not functional
     public function doCheckOut(){
-        return "INSERT INTO `orders`(`seller_id`, `customer_id`, `product_id`, `order_date`, `total_amount`) SELECT ?,?,product_id,now(),product_price*quantity FROM `my_cart` WHERE customer_id = ?";
+        return "INSERT INTO `orders`(`seller_id`, `customer_id`, `product_id`, `order_date`, `total_amount`) SELECT ?,?,product_id,now(),product_price*quantity FROM `my_cart` WHERE cart_id = ?";
     }
     // for order details not functional
-    // public function displayOrderDetailsData(){
-        // return "SELECT o.order_id, o.order_date, u.name, u.email, u.permanent_add, u.contact_no, p.product_name, m.quantity, p.product_price, p.product_price * m.quantity AS totalPrice 
-        // FROM orders AS o 
-        // INNER JOIN user_table AS u INNER JOIN products AS p INNER JOIN my_cart AS m on o.customer_id = u.id AND o.product_id = p.product_ID AND m.product_id = p.product_ID AND m.customer_id = o.customer_id 
-        // WHERE o.customer_id = ?";
-    // }
+    public function displayOrderDetailsData(){
+        return "SELECT o.order_id, o.order_date, u.name, u.email, u.permanent_add, u.contact_no, p.product_name, m.quantity, p.product_price, p.product_price * m.quantity AS totalPrice 
+        FROM orders AS o 
+        INNER JOIN user_table AS u INNER JOIN products AS p INNER JOIN my_cart AS m on o.customer_id = u.id AND o.product_id = p.product_ID AND m.product_id = p.product_ID AND m.customer_id = o.customer_id 
+        WHERE o.customer_id = ?";
+    }
 
     public function getCustomerData(){
         return "SELECT * FROM `user_table` WHERE `role` = 1 ORDER BY `created_date`";
@@ -188,6 +188,14 @@ class data{
     //INVENTORY DELETE
     public function deleteInve(){
         return "DELETE FROM products WHERE product_ID = ?";
+    }
+
+    public function dchart(){
+        return "SELECT MONTHNAME(o.order_date) as month , o.total_amount
+                FROM user_table AS u
+                INNER JOIN orders AS o ON o.seller_id = u.id 
+                WHERE o.seller_id  = ?
+                GROUP BY o.order_date";
     }
 }    
 ?>

@@ -139,12 +139,12 @@ if (!isset($_SESSION['id'])) {
 <!-- section 2-->
 
 <div id="product">
-  <section id="section2" class="bg-white py-8 bg-cover bg-center h-screen flex items-center justify-center">
+  <section id="section2" class="bg-white py-8 bg-cover bg-center flex items-center justify-center">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-4 text-center">Featured Products</h2>
       <div class="max-w-5xl mx-auto p-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <div class="p-2 w-64 m-2" v-for="product in productsFromIndex" :key="product.product_ID">
+          <div class="p-2 w-64 m-2" v-for="product in products" :key="product.product_ID">
             <div class="bg-white rounded-lg shadow-md relative">
               <img @click="fnGetDataProducts(product.product_ID)" data-bs-toggle="modal" data-bs-target="#View" :src="'/florafusionmarket/assets/img/' + product.image" alt="plant" class="w-full h-36 object-cover cursor-pointer">
               <div class="p-3 text-center">

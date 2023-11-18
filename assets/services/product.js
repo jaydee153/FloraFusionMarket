@@ -8,9 +8,9 @@ createApp({
             desc: '',
             product: [],
             products : [],
-            productsFromIndex : [],
+            // productsFromIndex : [],
             product_ID: 0,
-            selectedId: 0,
+            // selectedId: 0,
             search: '',
         }
     },
@@ -37,10 +37,30 @@ createApp({
         //             }
         //         });
         // },     
-        GetProduct:function(){
+        // GetProduct:function(){
+        //     const vue = this;
+        //     var data = new FormData();
+        //     data.append("method", "getAllProducts");
+        //     axios.post('/florafusionmarket/includes/router.php', data)
+        //     .then(function(r){
+        //         vue.products = [];
+        //         for(const v of r.data){
+        //             vue.products.push({
+        //                 product_ID : v.product_ID,
+        //                 image : v.product_image,
+        //                 name: v.product_name,
+        //                 price: v.product_price,
+        //                 qty: v.product_qty,
+        //                 des: v.product_des,
+        //                 data: v.created_date,
+        //             })
+        //         }
+        //     })
+        // },      
+        GetProductFromIndex:function(){
             const vue = this;
             var data = new FormData();
-            data.append("method", "getAllProducts");
+            data.append("method", "getAllProductFromIndex");
             axios.post('/florafusionmarket/includes/router.php', data)
             .then(function(r){
                 vue.products = [];
@@ -56,27 +76,7 @@ createApp({
                     })
                 }
             })
-        },      
-        GetProductFromIndex:function(){
-            const vue = this;
-            var data = new FormData();
-            data.append("method", "getAllProductFromIndex");
-            axios.post('/florafusionmarket/includes/router.php', data)
-            .then(function(r){
-                vue.productsFromIndex = [];
-                for(const v of r.data){
-                    vue.productsFromIndex.push({
-                        product_ID : v.product_ID,
-                        image : v.product_image,
-                        name: v.product_name,
-                        price: v.product_price,
-                        qty: v.product_qty,
-                        des: v.product_des,
-                        data: v.created_date,
-                    })
-                }
-            })
-        },      
+        },    
         fnGetDataProducts: function(product_ID) {
             const vue = this;
             var data = new FormData();
@@ -101,79 +101,79 @@ createApp({
               });
           },
           
-        getProductById:function(product_ID){
-            const vue = this;
-            var data = new FormData();
-            data.append("method", "getProductById");
-            data.append("product_ID",product_ID);
-            axios.post('/florafusionmarket/includes/router.php',data)
-            .then(function(r){
-                for(var v of r.data){
-                    vue.qty = v.product_qty;
-                    vue.price = v.product_price;
-                    vue.product_ID = v.product_ID;
-                }
-            })
-            .catch(function(error) {
-                console.error(error);
-            });
-        },
-        GETselectedId:function(id){
-            this.selectedId = id;
-        },
-        updateProduct:function(){
-            // if(confirm('Are you sure you want to update')){
-                const vue = this;
-                var data = new FormData();
-                data.append("method","getThisUpdateProduct");
-                data.append("product_ID",vue.selectedId);
-                data.append("qty",document.getElementById('qytUpt').value);
-                data.append("price",document.getElementById('priceUpt').value);
-                axios.post('../includes/router.php',data)
-                .then(function(r){
-                    alert(r.data);
-                    if(r.data == "SuccessfullyUpdated"){
-                        vue.GetProduct();
-                        alert("SuccessfullyUpdated");
-                    }
-                })
-            // }
-        },
+        // getProductById:function(product_ID){
+        //     const vue = this;
+        //     var data = new FormData();
+        //     data.append("method", "getProductById");
+        //     data.append("product_ID",product_ID);
+        //     axios.post('/florafusionmarket/includes/router.php',data)
+        //     .then(function(r){
+        //         for(var v of r.data){
+        //             vue.qty = v.product_qty;
+        //             vue.price = v.product_price;
+        //             vue.product_ID = v.product_ID;
+        //         }
+        //     })
+        //     .catch(function(error) {
+        //         console.error(error);
+        //     });
+        // },
+        // GETselectedId:function(id){
+        //     this.selectedId = id;
+        // },
+        // updateProduct:function(){
+        //     // if(confirm('Are you sure you want to update')){
+        //         const vue = this;
+        //         var data = new FormData();
+        //         data.append("method","getThisUpdateProduct");
+        //         data.append("product_ID",vue.selectedId);
+        //         data.append("qty",document.getElementById('qytUpt').value);
+        //         data.append("price",document.getElementById('priceUpt').value);
+        //         axios.post('../includes/router.php',data)
+        //         .then(function(r){
+        //             alert(r.data);
+        //             if(r.data == "SuccessfullyUpdated"){
+        //                 vue.GetProduct();
+        //                 alert("SuccessfullyUpdated");
+        //             }
+        //         })
+        //     // }
+        // },
 
-        deleteProduct: function(id) {
-            Swal.fire({
-                title: 'Are you sure you want to delete this product?',
-                // text: 'This action cannot be undone!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#FF0000', 
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'Cancel'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const vue = this;
-                    var data = new FormData();
-                    data.append("method", "deleteProduct");
-                    data.append("product_ID", id);
-                    axios.post('../includes/router.php', data)
-                        .then(function(r) {
-                            if (r.data == 200) {
-                                vue.GetProduct();
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Successfully Deleted',
-                                    showConfirmButton: false,
-                                    timer: 1500  
-                                }).then(function() {
+        // deleteProduct: function(id) {
+        //     Swal.fire({
+        //         title: 'Are you sure you want to delete this product?',
+        //         // text: 'This action cannot be undone!',
+        //         icon: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#FF0000', 
+        //         cancelButtonColor: '#3085d6',
+        //         confirmButtonText: 'Yes, delete it!',
+        //         cancelButtonText: 'Cancel'
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             const vue = this;
+        //             var data = new FormData();
+        //             data.append("method", "deleteProduct");
+        //             data.append("product_ID", id);
+        //             axios.post('../includes/router.php', data)
+        //                 .then(function(r) {
+        //                     if (r.data == 200) {
+        //                         vue.GetProduct();
+        //                         Swal.fire({
+        //                             icon: 'success',
+        //                             title: 'Successfully Deleted',
+        //                             showConfirmButton: false,
+        //                             timer: 1500  
+        //                         }).then(function() {
                                 
-                                    window.location.reload();
-                                });
-                            }
-                        });
-                }
-            });
-        },
+        //                             window.location.reload();
+        //                         });
+        //                     }
+        //                 });
+        //         }
+        //     });
+        // },
         addToCart:function(product_ID){
             const vue = this;
             var data = new FormData();
@@ -208,7 +208,7 @@ createApp({
         }
     },
     created:function(){
-        this.GetProduct();
+        // this.GetProduct();
         // this.getProductById();
         this.GetProductFromIndex();
     }

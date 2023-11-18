@@ -125,30 +125,19 @@ if (!isset($_SESSION['id'])) {
             </table>
 
             <!-- Cart Total -->
-            <!-- <div class="mt-4 flex flex-col items-end">
-                <div class="text-xl font-semibold mb-2">
-                    Total Amout:
-                    <span class="ml-2">{{ c.p_totalPrice }}</span>
-                </div>
-                <button id="order-details-button" @click="checkOut(product_id)"
-                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
-                    Checkout
-                </button>
-            </div> -->
-            <!-- Cart Total -->
             <div class="mt-4 flex flex-col items-end">
                 <div class="text-xl font-semibold mb-2">
                     Total Amout:
                     <span class="ml-2" id="f">{{ c.p_price }}</span>
                 </div>
-                <button id="order-details-button" @click="checkOut(product_id)"
+                <button @click="checkOut(id)"
                     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none">
                     Checkout
                 </button>
             </div>
 
             <!-- Modal for Checkout -->
-            <div id="order-details-modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
+            <!-- <div id="order-details-modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
                 <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
                 <div
                     class="modal-container bg-white w-10/12 md:max-w-2xl mx-auto rounded shadow-lg z-50 overflow-y-auto flex flex-col md:flex-row">
@@ -236,7 +225,7 @@ if (!isset($_SESSION['id'])) {
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -247,8 +236,8 @@ if (!isset($_SESSION['id'])) {
     <script src="../assets/services/cart.js"></script>
     <script src="../assets/css/jquery.js"></script>
     <script src="../assets/css/toastr.js"></script>
-    <script src="../assets/modal_cart.js"></script>
-    <script src="../assets/paymentMethod.js"></script>
+    <!-- <script src="../assets/modal_cart.js"></script>
+    <script src="../assets/paymentMethod.js"></script> -->
     <script src="../assets/drop_down.js"></script>
 
 </body>

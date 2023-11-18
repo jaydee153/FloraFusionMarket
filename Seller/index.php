@@ -94,14 +94,6 @@
             <canvas id="myChart" width="400" height="200"></canvas>
         </div>
 </div>
-</div>
-</div>
-</div>
-
-
-
-
-
 
 <script src="../assets/chart.js"></script>
 </body>
